@@ -1,0 +1,204 @@
+def TheoremA.IsFP.{u_1} : Nat → (G : Type u_1) → [Group.{u_1} G] → Prop :=
+fun n G [Group.{u_1} G] =>
+  ∃ c d ε,
+    And
+      (∀ (g : G) (x : TheoremA.FreeMod.{u_1} G (c 0)),
+        Eq.{1} (ε (HSMul.hSMul.{u_1, u_1, u_1} ((MonoidAlgebra.of.{0, u_1} Int G) g) x)) (ε x))
+      (And (Function.Surjective.{u_1 + 1, 1} ⇑ε)
+        (And
+          (LT.lt.{0} 0 n →
+            Eq.{u_1 + 1} (AddMonoidHom.ker.{u_1, 0} ε)
+              (Submodule.toAddSubgroup.{u_1, u_1} (LinearMap.range.{u_1, u_1, u_1, u_1} (d 0))))
+          (∀ (i : Nat),
+            LT.lt.{0} (HAdd.hAdd.{0, 0, 0} i 1) n →
+              Eq.{u_1 + 1} (LinearMap.ker.{u_1, u_1, u_1, u_1} (d i))
+                (LinearMap.range.{u_1, u_1, u_1, u_1} (d (HAdd.hAdd.{0, 0, 0} i 1))))))
+def TheoremA.TheoremAStatement.{u} : Prop :=
+∀ (n : Nat),
+  LE.le.{0} 2 n →
+    ∀ (G : Type u) [inst : Group.{u} G] [Countable.{u + 1} G],
+      ∃ E x, And (TheoremA.IsFP.{u} n E) (∃ f, Function.Injective.{u + 1, u + 1} ⇑f)
+def FanoTriples.triples : List.{0} TripleSystem.Triple :=
+HAppend.hAppend.{0, 0, 0}
+  (HAppend.hAppend.{0, 0, 0} (List.map.{0, 0} FanoTriples.pointTriple (List.range 7))
+    (List.map.{0, 0} FanoTriples.lineTriple (List.range 7)))
+  (List.cons.{0} FanoTriples.gamma List.nil.{0})
+def FanoTriples.pointTriple : Nat → TripleSystem.Triple :=
+fun p =>
+  Prod.mk.{0, 0} (FanoTriples.flag0 p)
+    (Prod.mk.{0, 0} (FanoTriples.flag1 (HMod.hMod.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p 6) 7))
+      (ite.{1} (Eq.{1} p 3) FanoTriples.b (FanoTriples.flag3 (HMod.hMod.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p 4) 7))))
+def FanoTriples.lineTriple : Nat → TripleSystem.Triple :=
+fun j =>
+  Prod.mk.{0, 0} (FanoTriples.flag0 j)
+    (Prod.mk.{0, 0} (FanoTriples.flag1 j) (ite.{1} (Eq.{1} j 0) FanoTriples.a (FanoTriples.flag3 j)))
+def FanoTriples.nu : Fin (List.length.{0} FanoTriples.triples) → Int :=
+fun l => ite.{1} (LT.lt.{0} (↑l) 7) 1 (ite.{1} (LT.lt.{0} (↑l) 14) (-1) 1)
+theorem TheoremA.theoremA_of_ingredients.{u} : TheoremA.Lemma31.{u} →
+  TheoremA.Corollary52.{u} → TheoremA.UniversalBases.{u} → TheoremA.TheoremAStatement.{u} :=
+fun h31 h52 hU n hn G [Group.{u} G] [Countable.{u + 1} G] =>
+  Exists.casesOn.{1} FanoTriples.exists_tripleSystem fun r h =>
+    Exists.casesOn.{1} h fun T h =>
+      And.casesOn.{0} h fun hr right =>
+        And.casesOn.{0} right fun hw right =>
+          And.casesOn.{0} right fun hg right =>
+            Exists.casesOn.{1} right fun a ha =>
+              Exists.casesOn.{u + 2} (hU r T G) fun 𝒞 h =>
+                And.casesOn.{0} h fun hbase right =>
+                  And.casesOn.{0} right fun hK hH =>
+                    Exists.casesOn.{u + 2} (TheoremA.proposition_7_1.{u} h31 h52 r T a hr hw hg ha G 𝒞 hbase hK hH n hn)
+                      fun B h =>
+                      Exists.casesOn.{u + 1} h fun w h =>
+                        And.casesOn.{0} h fun left right =>
+                          And.casesOn.{0} right fun hFP right =>
+                            And.casesOn.{0} right fun hGB right =>
+                              Exists.intro.{u + 2} B (Exists.intro.{u + 1} inferInstance.{u + 1} ⟨hFP, hGB⟩)
+FanoTriples.proposition_3_2 : And
+  (@Eq.{1} Nat (@List.length.{0} TripleSystem.Triple FanoTriples.triples)
+    (@OfNat.ofNat.{0} Nat (nat_lit 15) (instOfNatNat (nat_lit 15))))
+  (And (@List.Nodup.{0} TripleSystem.Triple FanoTriples.triples)
+    (And (TripleSystem.WellFormed (@OfNat.ofNat.{0} Nat (nat_lit 23) (instOfNatNat (nat_lit 23))) FanoTriples.triples)
+      (And
+        (@LE.le.{0} ENat
+          (@Preorder.toLE.{0} ENat
+            (@PartialOrder.toPreorder.{0} ENat
+              (@ChainCompletePartialOrder.toPartialOrder.{0} ENat
+                (@ChainCompletePartialOrder.instOfCompleteLattice.{0} ENat
+                  (@CompletelyDistribLattice.toCompleteLattice.{0} ENat
+                    (@CompleteLinearOrder.toCompletelyDistribLattice.{0} ENat instCompleteLinearOrderENat))))))
+          (@OfNat.ofNat.{0} ENat (nat_lit 12) (@instOfNatAtLeastTwo.{0} ENat (nat_lit 12) ENat.instNatCast ⋯))
+          (@SimpleGraph.egirth.{0}
+            (Sum.{0, 0} (Fin (@OfNat.ofNat.{0} Nat (nat_lit 23) (instOfNatNat (nat_lit 23))))
+              (Fin (@List.length.{0} TripleSystem.Triple FanoTriples.triples)))
+            (TripleSystem.incidenceGraph (@OfNat.ofNat.{0} Nat (nat_lit 23) (instOfNatNat (nat_lit 23)))
+              FanoTriples.triples)))
+        (And
+          (TripleSystem.RowIdentity (@OfNat.ofNat.{0} Nat (nat_lit 23) (instOfNatNat (nat_lit 23))) FanoTriples.triples
+            FanoTriples.nu)
+          (∀ (l : Fin (@List.length.{0} TripleSystem.Triple FanoTriples.triples)),
+            Or (@Eq.{1} Int (FanoTriples.nu l) (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))
+              (@Eq.{1} Int (FanoTriples.nu l)
+                (@Neg.neg.{0} Int Int.instNegInt (@OfNat.ofNat.{0} Int (nat_lit 1) (@instOfNat (nat_lit 1))))))))))
+TheoremA.Fano.universalFP2.{u_1} : ∀ (R : Set.{0} Nat),
+  ∃ B x,
+    And (@TheoremA.RelPres.ClassCR.{u_1} R B x)
+      (And (@TheoremA.IsFP.{u_1} (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) B x)
+        (∀ (Y : Type u_1) [inst : Group.{u_1} Y],
+          @TheoremA.RelPres.ClassCR.{u_1} R Y inst →
+            ∃ f,
+              @Function.Injective.{u_1 + 1, u_1 + 1} Y B
+                (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+                  (@MonoidHom.{u_1, u_1} Y B
+                    (@MulOneClass.toMulOne.{u_1} Y
+                      (@Monoid.toMulOneClass.{u_1} Y
+                        (@DivInvMonoid.toMonoid.{u_1} Y (@Group.toDivInvMonoid.{u_1} Y inst))))
+                    (@MulOneClass.toMulOne.{u_1} B
+                      (@Monoid.toMulOneClass.{u_1} B
+                        (@DivInvMonoid.toMonoid.{u_1} B (@Group.toDivInvMonoid.{u_1} B x)))))
+                  Y (fun x => B)
+                  (@MonoidHom.instFunLike.{u_1, u_1} Y B
+                    (@MulOneClass.toMulOne.{u_1} Y
+                      (@Monoid.toMulOneClass.{u_1} Y
+                        (@DivInvMonoid.toMonoid.{u_1} Y (@Group.toDivInvMonoid.{u_1} Y inst))))
+                    (@MulOneClass.toMulOne.{u_1} B
+                      (@Monoid.toMulOneClass.{u_1} B
+                        (@DivInvMonoid.toMonoid.{u_1} B (@Group.toDivInvMonoid.{u_1} B x)))))
+                  f)))
+TheoremA.Fano.universalFP.{u_1} : ∀ (R : Set.{0} Nat) (n : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n →
+    ∃ B x,
+      And (@TheoremA.RelPres.ClassCR.{u_1} R B x)
+        (And (@TheoremA.IsFP.{u_1} n B x)
+          (∀ (Y : Type u_1) [inst : Group.{u_1} Y],
+            @TheoremA.RelPres.ClassCR.{u_1} R Y inst →
+              ∃ f,
+                @Function.Injective.{u_1 + 1, u_1 + 1} Y B
+                  (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+                    (@MonoidHom.{u_1, u_1} Y B
+                      (@MulOneClass.toMulOne.{u_1} Y
+                        (@Monoid.toMulOneClass.{u_1} Y
+                          (@DivInvMonoid.toMonoid.{u_1} Y (@Group.toDivInvMonoid.{u_1} Y inst))))
+                      (@MulOneClass.toMulOne.{u_1} B
+                        (@Monoid.toMulOneClass.{u_1} B
+                          (@DivInvMonoid.toMonoid.{u_1} B (@Group.toDivInvMonoid.{u_1} B x)))))
+                    Y (fun x => B)
+                    (@MonoidHom.instFunLike.{u_1, u_1} Y B
+                      (@MulOneClass.toMulOne.{u_1} Y
+                        (@Monoid.toMulOneClass.{u_1} Y
+                          (@DivInvMonoid.toMonoid.{u_1} Y (@Group.toDivInvMonoid.{u_1} Y inst))))
+                      (@MulOneClass.toMulOne.{u_1} B
+                        (@Monoid.toMulOneClass.{u_1} B
+                          (@DivInvMonoid.toMonoid.{u_1} B (@Group.toDivInvMonoid.{u_1} B x)))))
+                    f)))
+TheoremA.Fano.theoremA.{u_1} : ∀ (n : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n →
+    ∀ (G : Type u_1) [inst : Group.{u_1} G] [Countable.{u_1 + 1} G],
+      ∃ E x,
+        And (@TheoremA.IsFP.{u_1} n E x)
+          (∃ f,
+            @Function.Injective.{u_1 + 1, u_1 + 1} G E
+              (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+                (@MonoidHom.{u_1, u_1} G E
+                  (@MulOneClass.toMulOne.{u_1} G
+                    (@Monoid.toMulOneClass.{u_1} G
+                      (@DivInvMonoid.toMonoid.{u_1} G (@Group.toDivInvMonoid.{u_1} G inst))))
+                  (@MulOneClass.toMulOne.{u_1} E
+                    (@Monoid.toMulOneClass.{u_1} E (@DivInvMonoid.toMonoid.{u_1} E (@Group.toDivInvMonoid.{u_1} E x)))))
+                G (fun x => E)
+                (@MonoidHom.instFunLike.{u_1, u_1} G E
+                  (@MulOneClass.toMulOne.{u_1} G
+                    (@Monoid.toMulOneClass.{u_1} G
+                      (@DivInvMonoid.toMonoid.{u_1} G (@Group.toDivInvMonoid.{u_1} G inst))))
+                  (@MulOneClass.toMulOne.{u_1} E
+                    (@Monoid.toMulOneClass.{u_1} E (@DivInvMonoid.toMonoid.{u_1} E (@Group.toDivInvMonoid.{u_1} E x)))))
+                f))
+TheoremA.theoremA.{u_1} : ∀ (n : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) n →
+    ∀ (G : Type u_1) [inst : Group.{u_1} G] [Countable.{u_1 + 1} G],
+      ∃ E x,
+        And (@TheoremA.IsFP.{u_1} n E x)
+          (∃ f,
+            @Function.Injective.{u_1 + 1, u_1 + 1} G E
+              (@DFunLike.coe.{u_1 + 1, u_1 + 1, u_1 + 1}
+                (@MonoidHom.{u_1, u_1} G E
+                  (@MulOneClass.toMulOne.{u_1} G
+                    (@Monoid.toMulOneClass.{u_1} G
+                      (@DivInvMonoid.toMonoid.{u_1} G (@Group.toDivInvMonoid.{u_1} G inst))))
+                  (@MulOneClass.toMulOne.{u_1} E
+                    (@Monoid.toMulOneClass.{u_1} E (@DivInvMonoid.toMonoid.{u_1} E (@Group.toDivInvMonoid.{u_1} E x)))))
+                G (fun x => E)
+                (@MonoidHom.instFunLike.{u_1, u_1} G E
+                  (@MulOneClass.toMulOne.{u_1} G
+                    (@Monoid.toMulOneClass.{u_1} G
+                      (@DivInvMonoid.toMonoid.{u_1} G (@Group.toDivInvMonoid.{u_1} G inst))))
+                  (@MulOneClass.toMulOne.{u_1} E
+                    (@Monoid.toMulOneClass.{u_1} E (@DivInvMonoid.toMonoid.{u_1} E (@Group.toDivInvMonoid.{u_1} E x)))))
+                f))
+'FanoTriples.index_labels' does not depend on any axioms
+'FanoTriples.triples_length' does not depend on any axioms
+'FanoTriples.triples_nodup' does not depend on any axioms
+'FanoTriples.nu_unit' depends on axioms: [propext]
+'FanoTriples.wellFormed_check' does not depend on any axioms
+'FanoTriples.wellFormed' depends on axioms: [propext, Quot.sound]
+'FanoTriples.row_check' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FanoTriples.rowIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FanoTriples.incidence_check' depends on axioms: [propext]
+'FanoTriples.girth_check' depends on axioms: [propext]
+'FanoTriples.girth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FanoTriples.proposition_3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'FanoTriples.exists_tripleSystem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.comparison' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.lemma_3_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.lemma_4_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.proposition_5_1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.corollary_5_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Leary.flagSeparation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.universalBases' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Fano.index_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Fano.degree_raising' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Fano.universalFP2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Fano.universalFP' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.Fano.theoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TheoremA.theoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+Dependency audit passed for TheoremA.theoremA: Fano girth and row identity, proved Leary detection; no legacy finite example; standard axioms only.
+Dependency audit passed for TheoremA.Fano.theoremA: Fano girth and row identity, proved Leary detection; no legacy finite example; standard axioms only.

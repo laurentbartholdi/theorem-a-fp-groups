@@ -1,0 +1,519 @@
+{
+  "timestamp_utc": "2026-09-29T09:54:48.163167+00:00",
+  "status": "Theorem A proved unconditionally using the revised Fano-plane system",
+  "source_pdf": "embedding_fpn (3).pdf",
+  "source_pdf_sha256": "9f18ac6ba4e8249a4d10324f0b86d5fb4cbbe3b2da1ba0f1877a689bdfc9397c",
+  "entry_module": "RequestProject.TheoremA.Fano",
+  "theorems": [
+    "TheoremA.theoremA",
+    "TheoremA.Fano.theoremA"
+  ],
+  "triple_system": {
+    "indices": 23,
+    "triples": 15,
+    "girth_at_least": 12,
+    "row_identity": "nu W = e_0",
+    "coefficients": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      1
+    ],
+    "certificate_checker": "Lean kernel, decide +kernel; soundness proved"
+  },
+  "legacy_finite_examples_in_dependency_closure": false,
+  "full_Leary_detection_proof_in_dependency_closure": true,
+  "conditional_on_external_theorem": false,
+  "IsFP_definition_unchanged": true,
+  "original_Main_theorem_statement_unchanged": true,
+  "modified_original_Lean_files": [
+    "RequestProject/TheoremA/Main.lean",
+    "RequestProject/TheoremA/Reduction.lean"
+  ],
+  "local_Lean_modules": [
+    "RequestProject.FanoTriples",
+    "RequestProject.GirthCheck",
+    "RequestProject.GirthKernel",
+    "RequestProject.TheoremA.Conditional",
+    "RequestProject.TheoremA.Defs",
+    "RequestProject.TheoremA.FP2.Augmentation",
+    "RequestProject.TheoremA.FP2.BoundaryNaturality",
+    "RequestProject.TheoremA.FP2.FPOneFG",
+    "RequestProject.TheoremA.FP2.FiniteKernel",
+    "RequestProject.TheoremA.FP2.FiniteRelative",
+    "RequestProject.TheoremA.FP2.PerfectKernel",
+    "RequestProject.TheoremA.FP2.PerfectQuotient",
+    "RequestProject.TheoremA.FP2.PresentationCriterion",
+    "RequestProject.TheoremA.FP2.PresentationExactness",
+    "RequestProject.TheoremA.FP2.WordBoundary",
+    "RequestProject.TheoremA.Fano",
+    "RequestProject.TheoremA.Groups.Britton",
+    "RequestProject.TheoremA.Groups.CodingHB",
+    "RequestProject.TheoremA.Groups.CodingVS",
+    "RequestProject.TheoremA.Groups.FreeProdNF",
+    "RequestProject.TheoremA.Groups.HB",
+    "RequestProject.TheoremA.Groups.HBJoin",
+    "RequestProject.TheoremA.Groups.HNNPres",
+    "RequestProject.TheoremA.Groups.IsFPTransport",
+    "RequestProject.TheoremA.Groups.LearyAssembly",
+    "RequestProject.TheoremA.Groups.ProdAmalgPres",
+    "RequestProject.TheoremA.Groups.RelPresent",
+    "RequestProject.TheoremA.Groups.RopeAlpha",
+    "RequestProject.TheoremA.Groups.RopePres",
+    "RequestProject.TheoremA.Groups.SegForm",
+    "RequestProject.TheoremA.Homological.Comparison",
+    "RequestProject.TheoremA.Homological.Cor43",
+    "RequestProject.TheoremA.Homological.CosetDecomp",
+    "RequestProject.TheoremA.Homological.CosetModule",
+    "RequestProject.TheoremA.Homological.FPData",
+    "RequestProject.TheoremA.Homological.HNNTorus",
+    "RequestProject.TheoremA.Homological.Induction",
+    "RequestProject.TheoremA.Homological.L42.ChainLifts",
+    "RequestProject.TheoremA.Homological.L42.Delta",
+    "RequestProject.TheoremA.Homological.L42.Ext",
+    "RequestProject.TheoremA.Homological.L42.HConstr",
+    "RequestProject.TheoremA.Homological.L42.HMap",
+    "RequestProject.TheoremA.Homological.L42.Homotopy",
+    "RequestProject.TheoremA.Homological.L42.Lemma42",
+    "RequestProject.TheoremA.Homological.L42.Maps",
+    "RequestProject.TheoremA.Homological.L42.Tensor",
+    "RequestProject.TheoremA.Homological.Lifts",
+    "RequestProject.TheoremA.Homological.Prop51",
+    "RequestProject.TheoremA.Homological.Setup",
+    "RequestProject.TheoremA.Homological.TMaps",
+    "RequestProject.TheoremA.Kernel.Assembly",
+    "RequestProject.TheoremA.Kernel.CodeGroup",
+    "RequestProject.TheoremA.Kernel.Enum",
+    "RequestProject.TheoremA.Kernel.FromSeparation",
+    "RequestProject.TheoremA.Kernel.PowerSubst",
+    "RequestProject.TheoremA.Kernel.RawCode",
+    "RequestProject.TheoremA.Kernel.Tower",
+    "RequestProject.TheoremA.Leary.Detection",
+    "RequestProject.TheoremA.Leary.FlagData",
+    "RequestProject.TheoremA.Leary.Flagness",
+    "RequestProject.TheoremA.Leary.Heap",
+    "RequestProject.TheoremA.Leary.Instance",
+    "RequestProject.TheoremA.Leary.LongRelators",
+    "RequestProject.TheoremA.Leary.Oracle",
+    "RequestProject.TheoremA.Leary.Package",
+    "RequestProject.TheoremA.Leary.PerfectCert",
+    "RequestProject.TheoremA.Leary.PerfectClosure",
+    "RequestProject.TheoremA.Leary.PoweredLoops",
+    "RequestProject.TheoremA.Leary.SourceBridge",
+    "RequestProject.TheoremA.Lemma31.ConeComplex",
+    "RequestProject.TheoremA.Lemma31.EulerCounting",
+    "RequestProject.TheoremA.Lemma31.Geometric",
+    "RequestProject.TheoremA.Lemma31.Iso",
+    "RequestProject.TheoremA.Lemma31.Picture.Cap",
+    "RequestProject.TheoremA.Lemma31.Picture.CombMap",
+    "RequestProject.TheoremA.Lemma31.Picture.Components",
+    "RequestProject.TheoremA.Lemma31.Picture.Consolidate",
+    "RequestProject.TheoremA.Lemma31.Picture.DefectConsolidate",
+    "RequestProject.TheoremA.Lemma31.Picture.DefectCount",
+    "RequestProject.TheoremA.Lemma31.Picture.DefectData",
+    "RequestProject.TheoremA.Lemma31.Picture.DefectLocal",
+    "RequestProject.TheoremA.Lemma31.Picture.DefectSplit",
+    "RequestProject.TheoremA.Lemma31.Picture.Erase",
+    "RequestProject.TheoremA.Lemma31.Picture.EraseEdge",
+    "RequestProject.TheoremA.Lemma31.Picture.EraseEdgeDiffFace",
+    "RequestProject.TheoremA.Lemma31.Picture.EulerBound",
+    "RequestProject.TheoremA.Lemma31.Picture.Exceptional",
+    "RequestProject.TheoremA.Lemma31.Picture.Extract",
+    "RequestProject.TheoremA.Lemma31.Picture.IdentityEdge",
+    "RequestProject.TheoremA.Lemma31.Picture.Minimal",
+    "RequestProject.TheoremA.Lemma31.Picture.PermOrbits",
+    "RequestProject.TheoremA.Lemma31.Picture.PermSplit",
+    "RequestProject.TheoremA.Lemma31.Picture.Raw",
+    "RequestProject.TheoremA.Lemma31.Picture.RawSplit",
+    "RequestProject.TheoremA.Lemma31.Picture.Split",
+    "RequestProject.TheoremA.Lemma31.Picture.Surgery",
+    "RequestProject.TheoremA.Lemma31.Reduction",
+    "RequestProject.TheoremA.Lemma31.Witness",
+    "RequestProject.TheoremA.Main",
+    "RequestProject.TheoremA.Proved",
+    "RequestProject.TheoremA.Reduction",
+    "RequestProject.TheoremA.RelPres.Bridge",
+    "RequestProject.TheoremA.RelPres.Checker",
+    "RequestProject.TheoremA.RelPres.CheckerComplete",
+    "RequestProject.TheoremA.RelPres.CheckerSound",
+    "RequestProject.TheoremA.RelPres.Class",
+    "RequestProject.TheoremA.RelPres.Code",
+    "RequestProject.TheoremA.RelPres.Diagram",
+    "RequestProject.TheoremA.RelPres.FP2Bridge",
+    "RequestProject.TheoremA.RelPres.Family",
+    "RequestProject.TheoremA.RelPres.HNN",
+    "RequestProject.TheoremA.RelPres.InputOracle",
+    "RequestProject.TheoremA.RelPres.OmegaGroup",
+    "RequestProject.TheoremA.RelPres.OmegaPres",
+    "RequestProject.TheoremA.RelPres.Oracle",
+    "RequestProject.TheoremA.RelPres.TwoGen",
+    "RequestProject.TheoremA.RelPres.TwoGenHNN",
+    "RequestProject.TheoremA.RelPres.TwoGenWord",
+    "RequestProject.TheoremA.RelPres.Universal",
+    "RequestProject.TripleSystem"
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.28.0",
+  "runs": [
+    {
+      "command": [
+        "lake",
+        "build",
+        "RequestProject.TheoremA.Fano",
+        "RequestProject.TheoremB.Universal"
+      ],
+      "executable": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\toolchain\\lean-4.28.0-windows\\bin\\lake.exe",
+      "cwd": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\verified\\RequestProject",
+      "started_utc": "2026-09-29T09:49:10.004931+00:00",
+      "log": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\theorem-a-fano-build.log",
+      "exit_code": 0,
+      "elapsed_seconds": 106.66,
+      "finished_utc": "2026-09-29T09:50:56.650066+00:00"
+    },
+    {
+      "command": [
+        "lake",
+        "env",
+        "lean",
+        "scripts/audit_fano.lean"
+      ],
+      "executable": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\toolchain\\lean-4.28.0-windows\\bin\\lake.exe",
+      "cwd": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\verified\\RequestProject",
+      "started_utc": "2026-09-29T09:53:09.584089+00:00",
+      "log": "C:\\Users\\Dell\\Documents\\Codex\\2026-09-11\\new-chat\\work\\lean-final-audit\\theorem-a-fano-audit.log",
+      "exit_code": 0,
+      "elapsed_seconds": 76.27,
+      "finished_utc": "2026-09-29T09:54:25.844875+00:00"
+    }
+  ],
+  "axiom_audit": [
+    {
+      "declaration": "FanoTriples.index_labels",
+      "axioms": []
+    },
+    {
+      "declaration": "FanoTriples.triples_length",
+      "axioms": []
+    },
+    {
+      "declaration": "FanoTriples.triples_nodup",
+      "axioms": []
+    },
+    {
+      "declaration": "FanoTriples.nu_unit",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.wellFormed_check",
+      "axioms": []
+    },
+    {
+      "declaration": "FanoTriples.wellFormed",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.row_check",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.rowIdentity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.incidence_check",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.girth_check",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.girth",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.proposition_3_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "FanoTriples.exists_tripleSystem",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.comparison",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.lemma_3_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.lemma_4_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.proposition_5_1",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.corollary_5_2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Leary.flagSeparation",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.universalBases",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Fano.index_injective",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Fano.degree_raising",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Fano.universalFP2",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Fano.universalFP",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.Fano.theoremA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "TheoremA.theoremA",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "keyword_scan": "all included source modules passed; comments and strings excluded",
+  "not_claimed": [
+    "one FP_infty overgroup",
+    "topological Theorem B verification",
+    "all optional remarks and auxiliary claims of the manuscript formalized"
+  ],
+  "source_hashes": {
+    "RequestProject/FanoTriples.lean": "128e86435043b604a65ee92c59bcdd934addcd760b2a0bc8134382dc07b1b8f0",
+    "RequestProject/GirthCheck.lean": "c24192ab8564342b96baa67494ab87eb7d5412a18aa3ba1307619e66bb337d2f",
+    "RequestProject/GirthKernel.lean": "14d8b9193f58dc90bab047772f124e55c4708306c0ad190392e2f9fd33826a5c",
+    "RequestProject/TheoremA/Conditional.lean": "758d8e1b8667406272c735aa8e74f5fbffc6a9d4fe68dd887cec52172f6db4f1",
+    "RequestProject/TheoremA/Defs.lean": "ad3d4de08a14c7abc56bf2601c8e76754cc574a799d5d44de21d5629120cc542",
+    "RequestProject/TheoremA/FP2/Augmentation.lean": "c45bdccc5605b251dbca9e18b4464d777e17de7d99043972edc8d8db019574b0",
+    "RequestProject/TheoremA/FP2/BoundaryNaturality.lean": "93dc80737a1b83ec18859f797b399134e4559f7aa6084a5655bcd890e5470653",
+    "RequestProject/TheoremA/FP2/FPOneFG.lean": "5814181f54d8a11f2e7c26aca94647f3d37a4530bac4ff933faf0fef61a4b9b0",
+    "RequestProject/TheoremA/FP2/FiniteKernel.lean": "7a6b38ff5af2721969f54576a5f5a32163d49459308306b274c5559ed8d320c5",
+    "RequestProject/TheoremA/FP2/FiniteRelative.lean": "d29924b2700ddc45eee77aabf4fd1ec27118142bf4a49c5a61023648b92b38ee",
+    "RequestProject/TheoremA/FP2/PerfectKernel.lean": "6f23b0e50fee8c655dfedd5f02b891a9890e1bc509d77ba4d5ec2d98e2358952",
+    "RequestProject/TheoremA/FP2/PerfectQuotient.lean": "2e20d9dc62387c124a5a11e56172a04effde0a19350d3c3ba0eaec7e22f02e27",
+    "RequestProject/TheoremA/FP2/PresentationCriterion.lean": "74bb1161dd5437e050a81df36abf7bdbf7035502731a51f892d0384c8a07db53",
+    "RequestProject/TheoremA/FP2/PresentationExactness.lean": "fe37bb21d1f72bc1f13399453b3c2ea156fd0219812758d774cc8a809c4b0030",
+    "RequestProject/TheoremA/FP2/WordBoundary.lean": "d32d6b2c539a8ee8200856546df8b19d5944e9a814bcd6295463b5d94752da12",
+    "RequestProject/TheoremA/Fano.lean": "bf14a20d9cdacb46b241475709404a5160859d0d10c498958937bf62fe877f89",
+    "RequestProject/TheoremA/Groups/Britton.lean": "20f5267e8e050ff68e4ea86ceabfc05d123d2d95a8654f218a5376829398077b",
+    "RequestProject/TheoremA/Groups/CodingHB.lean": "2451b4ef4a237a2507cf0ddb66cb04758fdb330da7a2736e0bee4ec30c8ca32e",
+    "RequestProject/TheoremA/Groups/CodingVS.lean": "ffcb3779fdc3684086b5197463b49c185f18ca9bb534e3a97fad074b5a3c0a54",
+    "RequestProject/TheoremA/Groups/FreeProdNF.lean": "bcffc0f1ea2c68305eaa1522c90fca017459e186e1ac6fb60c50057dd2e638cb",
+    "RequestProject/TheoremA/Groups/HB.lean": "9f47fa946ed61abe5fef8512bfb68fa4c6c8c632b65f0ff04bbfc46d43aeb96a",
+    "RequestProject/TheoremA/Groups/HBJoin.lean": "4a04ef8a6e8a563908cda6ac8ed03e46542dd115106184bb0907cb9e4506f25b",
+    "RequestProject/TheoremA/Groups/HNNPres.lean": "209efa03ca61a31dce54a2f4c2ac95da3d537c6db9d9158f1a45f10423045e7f",
+    "RequestProject/TheoremA/Groups/IsFPTransport.lean": "4a1cae41be737587fd206567473d92fe8b86f12d0445f9f988a65975492da478",
+    "RequestProject/TheoremA/Groups/LearyAssembly.lean": "ff2d2207e5fa6c07e3a95ad67a7ea3532447766491f97c83750c05ad3f88f70c",
+    "RequestProject/TheoremA/Groups/ProdAmalgPres.lean": "9ae886cadb49d975f3e112f0fc5387bab1b334beb7a8f32205fc9095fae23885",
+    "RequestProject/TheoremA/Groups/RelPresent.lean": "6485ab9494184ca6570f88dc35acb66fe0cdf3ca74a53dd6767c3aee1630c199",
+    "RequestProject/TheoremA/Groups/RopeAlpha.lean": "300f486220418aebdcf47d286a3d4b0bf3658f25628befe2cb977d2573b18ce8",
+    "RequestProject/TheoremA/Groups/RopePres.lean": "1c5cd46d7325a7da75dd165bd42bf08fe3392a7c1ea8de16e99d1c0e03c51683",
+    "RequestProject/TheoremA/Groups/SegForm.lean": "dcb58fa35c15d96b8ebe838ead6b470e42d78b74ed731f7a4f3046835feb5803",
+    "RequestProject/TheoremA/Homological/Comparison.lean": "850a55cb887b399cff4900dc83f6fcdb248fb1dde667ed9d5a19287e3b3b0f9b",
+    "RequestProject/TheoremA/Homological/Cor43.lean": "fd03bf3e874ed7dc055c2a59129b8cc6f9edf4351cc1694e111c7fb5ce22a0d9",
+    "RequestProject/TheoremA/Homological/CosetDecomp.lean": "948ce85e76fd6a8bfd8126fbf6b89da982cfc04bc1cdf3df604789bfd8b41b61",
+    "RequestProject/TheoremA/Homological/CosetModule.lean": "91b198233a08ba7c33c9a23ae06c534d73282d155cc32781ab11fb7cbb7984c5",
+    "RequestProject/TheoremA/Homological/FPData.lean": "5b59167a112dd832b59805fbfd9ecf8412fd7c6bc77fff8876cbeb8d05752f9d",
+    "RequestProject/TheoremA/Homological/HNNTorus.lean": "61d41f5decf06d98a93b77ce95b4f31bc3fda53833c0059e802bc8eeca4b8a43",
+    "RequestProject/TheoremA/Homological/Induction.lean": "f6d4f2e841ad9fccf7c2b7b3fa03aa816b48549264aa4727322f5044888ebfe6",
+    "RequestProject/TheoremA/Homological/L42/ChainLifts.lean": "d5e637bd636072b0d40105de965cc1a087787596af72aff6ef345239cf89dee1",
+    "RequestProject/TheoremA/Homological/L42/Delta.lean": "b7d327b6c73f589da679fe8dfaf56cc454069bf9ac7bec325f0418ebc0dca068",
+    "RequestProject/TheoremA/Homological/L42/Ext.lean": "4e556f4bfd6203df00ced45de8108785ec460680416773b5d4b3f442a25b0418",
+    "RequestProject/TheoremA/Homological/L42/HConstr.lean": "f567da908b67a224732b19ddae756efd5f055b703cc4eacd7d0f8a6dcbdaaa32",
+    "RequestProject/TheoremA/Homological/L42/HMap.lean": "b7ee61cdce5aa456ac58d587c9ca6f64f5ae239de36809008de5b6988ffb955c",
+    "RequestProject/TheoremA/Homological/L42/Homotopy.lean": "6958ca31586c5a33953bacee23ab7dee6f5ab054fd04b95e8426ece53cd28202",
+    "RequestProject/TheoremA/Homological/L42/Lemma42.lean": "33bf05bf92319105c39457b36fda7f4edad493530cb2747671ef2fd6c4b2e236",
+    "RequestProject/TheoremA/Homological/L42/Maps.lean": "90cac5d21fd63b93a04aaad6ddb9b9761e7caae0c0fa3e2a23bb48026f2b5702",
+    "RequestProject/TheoremA/Homological/L42/Tensor.lean": "836551110f5031704a9598d8e67b30edbf09e13c05c7a965920b62888b7f26a8",
+    "RequestProject/TheoremA/Homological/Lifts.lean": "251ef6e80739f0151198d7c4153881498e086f0b4a61d99a27b7a991a86c84ba",
+    "RequestProject/TheoremA/Homological/Prop51.lean": "f8ec9fc8c29aaebe45207f4b94ffa754fbde6b5be0d7de19231c04aa5dd4fd4e",
+    "RequestProject/TheoremA/Homological/Setup.lean": "5a2b8004708d065a60d35352c6f36450502209927565bb654e6505e5cba66ae7",
+    "RequestProject/TheoremA/Homological/TMaps.lean": "9288ecc64b8d21c78a26ee0e35107568ac53bcdfce4f847f333c765ea99e6521",
+    "RequestProject/TheoremA/Kernel/Assembly.lean": "eff6a4ed23b80aff496d67cec046d3fb770c7cb4b9d7a2fe202e0ea2f81bd320",
+    "RequestProject/TheoremA/Kernel/CodeGroup.lean": "19976243115d481d5575a33de46f89c51280bbd9e085dcd8db6b6134a04a7317",
+    "RequestProject/TheoremA/Kernel/Enum.lean": "92827687eb9cfac52f046966b442c1e156ca726cac7aa400d43e18faccfa8ff2",
+    "RequestProject/TheoremA/Kernel/FromSeparation.lean": "ddd0c9cd1201d1a751c465c53efae5974bead2965489461e1731e024396f368e",
+    "RequestProject/TheoremA/Kernel/PowerSubst.lean": "f2b15df559e70756ae743a11ff7abc3cdde9835930ab5888f8ca90bf75c84da0",
+    "RequestProject/TheoremA/Kernel/RawCode.lean": "0d90bf1011f92dfeb4a38c11cf8779111a2b1e0998f47843365dae1199fc58c2",
+    "RequestProject/TheoremA/Kernel/Tower.lean": "81edc86a810530f07931e3fea09ae831b4d700dbb32184cb67ebaa5c78e4af99",
+    "RequestProject/TheoremA/Leary/Detection.lean": "f92d2849dc2bf05236daeb200fc1176b5dab27daf7e7d1fe205e02ff4f9db77b",
+    "RequestProject/TheoremA/Leary/FlagData.lean": "7c3653260355388512be396b1557ee20621fc5968e9af1dda10055fc5fe1133b",
+    "RequestProject/TheoremA/Leary/Flagness.lean": "9da0a073e4adddba028180e31c7612eb2cc2cb3b6076745351e67705c851c0cc",
+    "RequestProject/TheoremA/Leary/Heap.lean": "268ed7be015b02a93643fe9652c57b47862f49177f3bd5e9c5eff2df576ec34b",
+    "RequestProject/TheoremA/Leary/Instance.lean": "5f2b6feea59bc14866a011cd0c6fe45aaa8840a727c4206d7fbcfc4f07b3dd30",
+    "RequestProject/TheoremA/Leary/LongRelators.lean": "ef10e513b5caf7c15af44afbf830d5d0094c504e5daca0bdbf19d8ee30c1828e",
+    "RequestProject/TheoremA/Leary/Oracle.lean": "876ef6d839d9b5da448a45f29a500d4801538daf1c8819fd98862d0aa091f7e1",
+    "RequestProject/TheoremA/Leary/Package.lean": "46336e92412bce4a85b69eb146c7282524912ea43cf158aef9cc9a77b5bbd4ba",
+    "RequestProject/TheoremA/Leary/PerfectCert.lean": "3781836367528c9d9097fbd697eb58960c4aa43b199f4194743ab3bdfb4b296e",
+    "RequestProject/TheoremA/Leary/PerfectClosure.lean": "7d7555dbf43e54d393e7d115645a203a5817d620d92946d73963d7b99e6a5652",
+    "RequestProject/TheoremA/Leary/PoweredLoops.lean": "e492a0556a30473b8eca2b063857427d20142d0457162f6240b60ccb9272dce9",
+    "RequestProject/TheoremA/Leary/SourceBridge.lean": "ca6183493e97426843a072195144ed09e5beb18a31aa8c24fd9bb58b3cda4ade",
+    "RequestProject/TheoremA/Lemma31/ConeComplex.lean": "0a8ead722f1e202a4a950f42a11182d9b3153bda8e14204450ac0452ac29b101",
+    "RequestProject/TheoremA/Lemma31/EulerCounting.lean": "421fba3e087edf21b948393a4c052a412cbc3872947228e6eff619641879464d",
+    "RequestProject/TheoremA/Lemma31/Geometric.lean": "89527bbb4a85f6fd3b695a791c488f8821a42cdd50a929c68bd0008aec36994d",
+    "RequestProject/TheoremA/Lemma31/Iso.lean": "f6c0f95dab9babc97dfe4cb5896c7a3bed07ceb911e6f8cecf61cae97aeea61f",
+    "RequestProject/TheoremA/Lemma31/Picture/Cap.lean": "1168912bddfc8297506a2ace103981ae2d7bd32be3b177a593b346b9a6957535",
+    "RequestProject/TheoremA/Lemma31/Picture/CombMap.lean": "39a4717bfb6334eeb6818596cca1ac2636758d3f64181173dad8c68d072d3485",
+    "RequestProject/TheoremA/Lemma31/Picture/Components.lean": "be19b210307ba037abcb4c88c999684ac402061b975fff7f04c1e6958de67c24",
+    "RequestProject/TheoremA/Lemma31/Picture/Consolidate.lean": "16ba14ddb1f2570b14ec048dbb8617c6dc3377a541a9952d89b0106d9a1f0c08",
+    "RequestProject/TheoremA/Lemma31/Picture/DefectConsolidate.lean": "762e4331a79e87fc1b034132c0a63ce2d72648f74d9025d4a1b8c056e062da17",
+    "RequestProject/TheoremA/Lemma31/Picture/DefectCount.lean": "c19fb79701edce767a6b0ae7f8d15ca3dbee1ea7455cacc147a32cde32c09eae",
+    "RequestProject/TheoremA/Lemma31/Picture/DefectData.lean": "b5a91c827b36254e47bca3716f648c6961f6b0f2d763f31b9236d0113801fee3",
+    "RequestProject/TheoremA/Lemma31/Picture/DefectLocal.lean": "74d0b79ba0b95155fb65a141d6d0870ce5684138a3fb66d4701da345bdc6adff",
+    "RequestProject/TheoremA/Lemma31/Picture/DefectSplit.lean": "2a1631331517f519de51ae62d187e0f4f485a56bdd9f788d69c9b9896e3b7451",
+    "RequestProject/TheoremA/Lemma31/Picture/Erase.lean": "acf37184a101e677edc9cb32f259c301abf92eb4cfb5b556579be9514c05f861",
+    "RequestProject/TheoremA/Lemma31/Picture/EraseEdge.lean": "5beec8897dddf7d9bf62bc143c567c4555578944b01f6e43e20bd16e6839b39f",
+    "RequestProject/TheoremA/Lemma31/Picture/EraseEdgeDiffFace.lean": "acc726095558f42ff202d49134f6da529e86c7b9f1c82f0da1c1dd68fdf9ac35",
+    "RequestProject/TheoremA/Lemma31/Picture/EulerBound.lean": "296ed1900a5f6eb34b288336696efeaa747eeaf5dde93077f8d444ac8612e573",
+    "RequestProject/TheoremA/Lemma31/Picture/Exceptional.lean": "5cf1cc0b30b9d6fcbfa6903a21521c6fd1f2803779e0a0550439b61e075e427e",
+    "RequestProject/TheoremA/Lemma31/Picture/Extract.lean": "1d052aae4dbba6f209110c6e337dd552e251c644c84f9d61eca976c4b95f6499",
+    "RequestProject/TheoremA/Lemma31/Picture/IdentityEdge.lean": "18595f755278270a002fe62a9997d6001ebf88c07c487f67b44eea725bd3fc5a",
+    "RequestProject/TheoremA/Lemma31/Picture/Minimal.lean": "4dc300f6339d463fe37a992c2955669a3ac9f7e85a84abea95d1c04508457144",
+    "RequestProject/TheoremA/Lemma31/Picture/PermOrbits.lean": "7124e6be18a96ebb1f0f9e96461e5948172aa1c1f951d671e0cd9654038eeb6b",
+    "RequestProject/TheoremA/Lemma31/Picture/PermSplit.lean": "62a96c36fb34aba75abcf1c0f24e637ef8f7356343d7056643f8b8bf9a9522e8",
+    "RequestProject/TheoremA/Lemma31/Picture/Raw.lean": "24c50292db53b71244b7a2d6b396439ee31e93d8db9c1f0de5a1ab3e76ce8eb4",
+    "RequestProject/TheoremA/Lemma31/Picture/RawSplit.lean": "5bb12a86fa1dad4b55d9de2f12401ca041548aec0379bd448efe4f07d1c7d15b",
+    "RequestProject/TheoremA/Lemma31/Picture/Split.lean": "23502580982c6fb60105e3f0c67a753e5ac014bf59568737dc92d421f2df6272",
+    "RequestProject/TheoremA/Lemma31/Picture/Surgery.lean": "b0b1d443fe35d65a7a217b79dd9e1e0617e1eda5dca523990df9040b7e7cb152",
+    "RequestProject/TheoremA/Lemma31/Reduction.lean": "66dab47824490610760ca0f495392ae3754536a59bf3dcb302085f479db0e50d",
+    "RequestProject/TheoremA/Lemma31/Witness.lean": "9d6df869e70db60cd04c9a1295f8bced6b93773cafefa19e710f0dcd65a2ae4c",
+    "RequestProject/TheoremA/Main.lean": "41612e2010a1ed99503dedabcc0bd4d22fbd86acd08dabcf492c4718ddcc8ef1",
+    "RequestProject/TheoremA/Proved.lean": "aebccf3cd6fe9aa1949b5efa5356deb25800f99c97ce4b3d9a0b4d56cb77f8fa",
+    "RequestProject/TheoremA/Reduction.lean": "9cf4c948592bc09c49c7479799cd616bffb9d5c49d6f774b90a4c251028ce3a2",
+    "RequestProject/TheoremA/RelPres/Bridge.lean": "2d80706de9c4541e481b2907364c0198a9e6b844ca3bcdb7afcd2fa41fe3ee3b",
+    "RequestProject/TheoremA/RelPres/Checker.lean": "e23193d183f8b4a043d9be787e45e99d29f3fab02c2dfeed0440705db9fb7994",
+    "RequestProject/TheoremA/RelPres/CheckerComplete.lean": "684a062b4ffa0c5bfa5e7e459f7174111a1dfc24d34e3c5736ab47d433a960a9",
+    "RequestProject/TheoremA/RelPres/CheckerSound.lean": "019a7c727ddd9126791fdac6875d54b7af85c59fd9aed6274417a5da5c3e7556",
+    "RequestProject/TheoremA/RelPres/Class.lean": "2b71b610d44ae1af7fd549d7913e2e7a924f56537cb04a0eb5e4e54dadb89c7e",
+    "RequestProject/TheoremA/RelPres/Code.lean": "594f35ffb1ca02acce366cd092c443e2fe8937e20c75d19abffffabf5b232e4a",
+    "RequestProject/TheoremA/RelPres/Diagram.lean": "b50eb2e9fcf9186b137e5b458f20dc2133c0b5c99dd235cf56a1b5bc95fa2186",
+    "RequestProject/TheoremA/RelPres/FP2Bridge.lean": "d9cb3e4b1e3ae01bde63cc9af8f835ff66dd2c773b708c65cbfbfe80d83c55f8",
+    "RequestProject/TheoremA/RelPres/Family.lean": "7bd3a61ecac7c8438ea03e19dc2c92ebf3857822d8500d06eb1013bce100c0f7",
+    "RequestProject/TheoremA/RelPres/HNN.lean": "13e306fad6caa3ff7fcf66ee1fb36208e502cbffb1ed6cb2f162312f5847b2cf",
+    "RequestProject/TheoremA/RelPres/InputOracle.lean": "55c4ccb25f75941867063a62ecb99cafaec5217eaca4a346d977613f5837725a",
+    "RequestProject/TheoremA/RelPres/OmegaGroup.lean": "c96fb6b9d67c58107a5a921ee02a6bfaefc96c5af3636816fd76aacd52460142",
+    "RequestProject/TheoremA/RelPres/OmegaPres.lean": "e58d660a8adf9e1e6caaccff8fda66c9fd6a9cb014642e7d2a63224d8bb8f714",
+    "RequestProject/TheoremA/RelPres/Oracle.lean": "2d7f113038bce53a2c1ff43558a71ffdf5920529bab22261b9827fd6b4e1913e",
+    "RequestProject/TheoremA/RelPres/TwoGen.lean": "2c8b7e8ea7fa265d4b9bc98354e8db410b08289663353ad407f89c341c7c95ce",
+    "RequestProject/TheoremA/RelPres/TwoGenHNN.lean": "cf7f508d0e39e0d4df82b67737d1a57df477cbd9e75f1299a3a0c0a716221a2b",
+    "RequestProject/TheoremA/RelPres/TwoGenWord.lean": "f8c970402ed2a38dee5ff21cc7b6bf19a6038f87ceabc5aea9449ade0f4b5dc8",
+    "RequestProject/TheoremA/RelPres/Universal.lean": "3208fa6edbd133fabd9b740ad7059105aa7380a6140db8019cc3d57d5258f001",
+    "RequestProject/TripleSystem.lean": "29e85928ff53ee7d9d8d19d74680f662042e24c7239fe599ddf6dfac1a83044a",
+    "lean-toolchain": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028",
+    "lakefile.toml": "b1481968ce2912f2b85288fc18aa05fb22750e4083f9e03f49f59a8814ba268a",
+    "lake-manifest.json": "116c6ef00aa899fb38c08c5e4c92c0e434d0e7f9d574fcb5d4d42cc90ffb07cb",
+    "README_FANO_THEOREM_A.md": "32f775d3bf429299c8e4e522ae9c17276e2f47b07b39d0db30e4bc7dd5d26786",
+    "scripts/audit_fano.lean": "54079c4f240942a191ab2cfbbb3aed1d32d9310f5be5dd9eab72c2c1f17b14d1"
+  }
+}

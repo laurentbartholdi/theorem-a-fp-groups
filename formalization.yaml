@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Embedding countable groups into groups of type FP_n"
+  description: >-
+    A Lean formalization of Theorem A: every countable group embeds in a group
+    of type FP_n over the integers for each finite n >= 2. The proof uses a
+    23-index, 15-triple Fano-plane construction to supply the finite input to
+    geometric, homological, and relative Leary arguments. It does not assert
+    the existence of one FP_infty overgroup.
+  authors:
+    - "Laurent Bartholdi"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Laurent Bartholdi"
+
+classification:
+  arxiv:
+    - "math.GR"
+  msc2020:
+    - "20J05"
+
+sources:
+  - title: "Theorem A in the manuscript identified as embedding_fpn (3).pdf"
+    type: "paper"
+    id: "sha256:9f18ac6ba4e8249a4d10324f0b86d5fb4cbbe3b2da1ba0f1877a689bdfc9397c"
+    location: "Theorem A and Proposition 3.2"
+    relationship: "formalizes"
+    note: >-
+      The manuscript is not present in this repository. The local verification
+      record supplies this filename and digest, but no stable public citation
+      or arXiv identifier is available yet; add the final bibliographic
+      reference when the planned arXiv version exists.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The Comparator claim is Theorem A for each finite n >= 2: every countable
+    group embeds in a group of type FP_n over the integers. IsFP is defined
+    using an exact finite-rank free partial resolution of the trivial integral
+    module. The repository also proves supporting results and specializations,
+    but this configuration does not claim the coherent increasing-sequence
+    assertion mentioned alongside Theorem 7.3, nor an FP_infty overgroup.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "TheoremA.palomarStatement"
+      file: "Challenge.lean"
+      sorry_count: 0
+      axioms:
+        - "propext"
+        - "Classical.choice"
+        - "Quot.sound"
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      framework: "Aristotle"
+      models: []
+      tool_setup: "Aristotle was used for the original Lean formalization; the specific model and setup were not recorded."
+      prompting_notes: "Prompt and task logs were not retained."
+    - method: "copilot"
+      framework: "GitHub Copilot in VS Code"
+      tool_setup: "Used for Palomar packaging and documentation in this preparation, not for the original proof development."
+  spend_usd: "not tracked"
+  notes: >-
+    The original formalization was produced with Aristotle. Available project
+    records document a successful Lean build and dependency/axiom audit on
+    2026-09-29, but do not identify the Aristotle model or preserve its prompts.
+
+fidelity:
+  divergences: >-
+    Theorem A's formal statement is unchanged. The formal proof uses the
+    revised 23-index, 15-triple system described as Proposition 3.2. The
+    combinatorial proof of the diagram lemma does not invoke an unformalized
+    CAT(0) developability theorem. Mathlib's HNN stable-letter convention is
+    inverse to the manuscript's convention. The coherent increasing-sequence
+    assertion adjacent to Theorem 7.3 is not claimed as a separate result.
+    The source PDF is not available in this repository for a fresh textual
+    comparison.
+
+review:
+  status: "unchecked"
+  reviewers: []
+  notes: >-
+    No independent human mathematical review is documented. The verification
+    record reports Lean compilation and a dependency/axiom audit in a separate
+    Windows environment; that is machine verification, not peer review.
+
+alignment:
+  namespace: "TheoremA"
+  statements:
+    - source: "Theorem A"
+      lean: "TheoremA.palomarStatement"
+      module: "Challenge.lean and Solution.lean"
+      status: "proved"
+      note: >-
+        The Challenge statement is paired with a proof that reuses
+        TheoremA.theoremA. Its IsFP definition is duplicated verbatim from
+        RequestProject.TheoremA.Defs so the Challenge imports Mathlib only.
+
+acknowledgements: >-
+  Aristotle contributed to the original formalization. The proof project uses
+  Lean 4 and Mathlib; GitHub Copilot was used to prepare the Palomar wrapper
+  and documentation.

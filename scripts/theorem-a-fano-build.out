@@ -1,0 +1,93 @@
+⚠ [8026/8147] Replayed RequestProject.TheoremA.Groups.SegForm
+warning: RequestProject/TheoremA/Groups/SegForm.lean:141:31: This simp argument is unused:
+  ih
+
+Hint: Omit it from the simp argument list.
+  simp [tail, i̵h̵,̵ ̵sgn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8118/8147] Replayed RequestProject.TheoremA.Groups.CodingVS
+warning: RequestProject/TheoremA/Groups/CodingVS.lean:190:49: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [8120/8147] Replayed RequestProject.TheoremA.Groups.HBJoin
+warning: RequestProject/TheoremA/Groups/HBJoin.lean:62:33: This simp argument is unused:
+  MonoidHom.coe_comp
+
+Hint: Omit it from the simp argument list.
+  simp only [Subgroup.mem_comap, M̵o̵n̵o̵i̵d̵H̵o̵m̵.̵c̵o̵e̵_̵c̵o̵m̵p̵,̵ ̵Function.comp_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: RequestProject/TheoremA/Groups/HBJoin.lean:62:53: This simp argument is unused:
+  Function.comp_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [Subgroup.mem_comap, MonoidHom.coe_comp,̵ ̵F̵u̵n̵c̵t̵i̵o̵n̵.̵c̵o̵m̵p̵_̵a̵p̵p̵l̵y̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [8137/8147] Replayed RequestProject.TheoremA.Groups.RopeAlpha
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:100:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.centHNN_conj_of_mem`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:115:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeL'_map`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:129:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeXB_mem`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:132:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeYB_mem`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:135:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeXs_mem`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:138:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeYs_mem`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:163:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeXHom_of`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:165:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeYHom_of`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: RequestProject/TheoremA/Groups/RopeAlpha.lean:175:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeL_closure_gens`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [8138/8147] Replayed RequestProject.TheoremA.Groups.RopePres
+warning: RequestProject/TheoremA/Groups/RopePres.lean:199:0: automatically included section variable(s) unused in theorem `TheoremA.RelPres.ropeRel_one`:
+  [N.Normal]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [N.Normal] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✔ [8145/8147] Built RequestProject.TheoremB.FinitePresentation (43s)
+✔ [8146/8147] Built RequestProject.TheoremA.Fano (43s)
+✔ [8147/8147] Built RequestProject.TheoremB.Universal (37s)
+Build completed successfully (8147 jobs).
