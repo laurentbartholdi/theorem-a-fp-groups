@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       commit: ${{ steps.resolve.outputs.commit }}
+      request_id: ${{ steps.resolve.outputs.request_id }}
     steps:
       - name: Validate the public snapshot
         id: resolve
@@ -35,6 +36,9 @@ jobs:
             exit 1
           fi
           echo "commit=$resolved" >> "$GITHUB_OUTPUT"
+          # The verifier requires exactly twelve lowercase alphanumeric characters.
+          request_id=$(printf '%s' "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" | sha256sum | cut -c1-12)
+          echo "request_id=$request_id" >> "$GITHUB_OUTPUT"
 
   preflight:
     needs: resolve-commit
@@ -43,7 +47,7 @@ jobs:
       repository: laurentbartholdi/theorem-a-fp-groups
       commit: ${{ needs.resolve-commit.outputs.commit }}
       pipeline_commit: 65f0154ed776cd26c224254aa57b379137f28b0d
-      request_id: preflight-${{ github.run_id }}-${{ github.run_attempt }}
+      request_id: ${{ needs.resolve-commit.outputs.request_id }}
       mode: full
       execution_profile: palomar-standard-v1
-      options: '{"comparator_config_path":"comparator.json"}'
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
