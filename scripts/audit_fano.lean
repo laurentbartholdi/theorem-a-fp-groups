@@ -35,5 +35,3 @@ set_option pp.explicit true in
 #check @TheoremA.theoremA
 set_option pp.explicit true in
 #check @TheoremA.palomarStatement
-
-#print axioms TheoremA.palomarStatement
