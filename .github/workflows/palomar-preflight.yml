@@ -4,19 +4,44 @@ on:
   workflow_dispatch:
     inputs:
       commit:
-        description: Full commit SHA of the public snapshot to verify
-        required: true
+        description: Full commit SHA to verify (leave blank for the selected branch)
+        required: false
         type: string
 
 permissions:
   contents: read
 
 jobs:
+  resolve-commit:
+    runs-on: ubuntu-24.04
+    outputs:
+      commit: ${{ steps.resolve.outputs.commit }}
+    steps:
+      - name: Validate the public snapshot
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_COMMIT: ${{ inputs.commit || github.sha }}
+          REPOSITORY: laurentbartholdi/theorem-a-fp-groups
+        shell: bash
+        run: |
+          if [[ ! "$REQUESTED_COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::Provide a full lowercase 40-character commit SHA, or leave it blank."
+            exit 1
+          fi
+          resolved=$(gh api "repos/$REPOSITORY/commits/$REQUESTED_COMMIT" --jq .sha)
+          if [[ "$resolved" != "$REQUESTED_COMMIT" ]]; then
+            echo "::error::The requested commit did not resolve to the exact public snapshot."
+            exit 1
+          fi
+          echo "commit=$resolved" >> "$GITHUB_OUTPUT"
+
   preflight:
+    needs: resolve-commit
     uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@65f0154ed776cd26c224254aa57b379137f28b0d
     with:
       repository: laurentbartholdi/theorem-a-fp-groups
-      commit: ${{ inputs.commit }}
+      commit: ${{ needs.resolve-commit.outputs.commit }}
       pipeline_commit: 65f0154ed776cd26c224254aa57b379137f28b0d
       request_id: preflight-${{ github.run_id }}-${{ github.run_attempt }}
       mode: full

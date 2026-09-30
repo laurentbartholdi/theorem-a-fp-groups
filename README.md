@@ -66,6 +66,13 @@ is a historical record rather than a certificate for later source edits.
 Palomar performs its own Comparator verification and independent kernel
 replay; a local build is not a substitute for that check.
 
+The **Palomar mechanical preflight** GitHub Actions workflow runs Palomar's
+complete pinned verifier. Leave its optional `commit` input blank to verify
+the selected branch's exact commit, or supply the full SHA printed by
+`git rev-parse HEAD` after pushing it. The workflow checks that the commit
+exists in this public repository before starting verification. A successful
+preflight is required before submission and is separate from registration.
+
 ## Scope and provenance
 
 The paper is available as [arXiv:2609.37562](https://arxiv.org/abs/2609.37562).
@@ -78,5 +85,5 @@ status as unchecked.
 
 Palomar is a registry of machine-checked claims, not peer review, a novelty
 certification, or a journal publication. Registration would record an
-immutable public GitHub commit. This repository is being prepared locally and
-has not been uploaded or submitted.
+immutable public GitHub commit. This repository is public; Palomar's registry
+is the authority for its registration status.
