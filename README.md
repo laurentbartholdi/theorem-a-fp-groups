@@ -1,8 +1,9 @@
 # Theorem A: countable groups embed in groups of type FP_n
 
-This Lean 4 project formalizes Theorem A of a manuscript currently identified
-as `embedding_fpn (3).pdf`. For every finite integer `n >= 2`, every countable
-group embeds in a group of type `FP_n` over the integers.
+This Lean 4 project formalizes Theorem A of Laurent Bartholdi and Roman
+Mikhailov's paper [Every countable group embeds in a group of type FP_n](https://arxiv.org/abs/2609.37562).
+For every finite integer `n >= 2`, every countable group embeds in a group of
+type `FP_n` over the integers.
 
 The claim is stated in [Challenge.lean](Challenge.lean) and proved in
 [Solution.lean](Solution.lean). The short Challenge file imports Mathlib only;
@@ -67,13 +68,13 @@ replay; a local build is not a substitute for that check.
 
 ## Scope and provenance
 
-The source manuscript is not included in this repository. The current local
-record identifies it only as `embedding_fpn (3).pdf` and records a SHA-256
-digest in [verification.json](verification.json); its full bibliographic
-reference and planned arXiv location remain to be supplied. The formalization
-was produced with Aristotle. Its precise model/version and prompt history were
-not retained. No independent mathematical review is documented here, so the
-metadata reports the review status as unchecked.
+The paper is available as [arXiv:2609.37562](https://arxiv.org/abs/2609.37562).
+The paper reports that ChatGPT 6 Astra assisted with the main proofs and the
+initial manuscript draft, and that Claude Opus 5.5 assisted with later
+editing. The Lean formalization was produced with Aristotle; its precise
+model/version and prompt history were not retained. No independent review of
+the formalization is documented here, so the metadata reports the review
+status as unchecked.
 
 Palomar is a registry of machine-checked claims, not peer review, a novelty
 certification, or a journal publication. Registration would record an

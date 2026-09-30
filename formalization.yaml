@@ -22,16 +22,18 @@ classification:
     - "20J05"
 
 sources:
-  - title: "Theorem A in the manuscript identified as embedding_fpn (3).pdf"
+  - title: "Every countable group embeds in a group of type FP_n"
+    authors:
+      - "Laurent Bartholdi"
+      - "Roman Mikhailov"
     type: "paper"
-    id: "sha256:9f18ac6ba4e8249a4d10324f0b86d5fb4cbbe3b2da1ba0f1877a689bdfc9397c"
-    location: "Theorem A and Proposition 3.2"
+    id: "arXiv:2609.37562"
+    location: "https://arxiv.org/abs/2609.37562, Theorem A and Proposition 3.2"
     relationship: "formalizes"
     note: >-
-      The manuscript is not present in this repository. The local verification
-      record supplies this filename and digest, but no stable public citation
-      or arXiv identifier is available yet; add the final bibliographic
-      reference when the planned arXiv version exists.
+      This repository formalizes Theorem A only, not Theorems B or Corollary C.
+      The Lean formalization is attributed to Laurent Bartholdi; the paper's
+      two authors are listed here as bibliographic authors.
 
 related_formalizations: []
 
@@ -84,8 +86,8 @@ fidelity:
     CAT(0) developability theorem. Mathlib's HNN stable-letter convention is
     inverse to the manuscript's convention. The coherent increasing-sequence
     assertion adjacent to Theorem 7.3 is not claimed as a separate result.
-    The source PDF is not available in this repository for a fresh textual
-    comparison.
+    The arXiv paper is the cited source; its PDF is not bundled in this
+    repository.
 
 review:
   status: "unchecked"
@@ -104,8 +106,8 @@ alignment:
       status: "proved"
       note: >-
         The Challenge statement is paired with a proof that reuses
-        TheoremA.theoremA. Its IsFP definition is duplicated verbatim from
-        RequestProject.TheoremA.Defs so the Challenge imports Mathlib only.
+        TheoremA.Fano.theoremA. Its IsFP definition is duplicated verbatim
+        from RequestProject.TheoremA.Defs so the Challenge imports Mathlib only.
 
 acknowledgements: >-
   Aristotle contributed to the original formalization. The proof project uses
