@@ -135,7 +135,7 @@ theorem wordBoundary_of_inv (x : Fin n → G) (i : Fin n) :
 theorem genBoundary_wordBoundary (x : Fin n → G) (u : FreeGroup (Fin n)) :
     genBoundary x (wordBoundary x u) = gm1 (FreeGroup.lift x u) := by
   induction u using FreeGroup.induction_on with
-  | C1 => rw [wordBoundary_one, map_zero, map_one, gm1, map_one, sub_self]
+  | one => rw [wordBoundary_one, map_zero, map_one, gm1, map_one, sub_self]
   | of i => rw [wordBoundary_of, genBoundary_single, FreeGroup.lift_apply_of]
   | inv_of i _ =>
     rw [wordBoundary_of_inv, map_neg, map_smul, genBoundary_single, (FreeGroup.lift x).map_inv,

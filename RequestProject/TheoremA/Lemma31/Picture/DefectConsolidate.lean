@@ -303,7 +303,7 @@ theorem consolidate_distinct_false : False := by
   have hSσ : ∀ y z, M.σ.SameCycle y z → πA.SameCycle y z := fun y z hyz => hπ.2 (Or.inl hyz)
   -- map facts
   obtain ⟨hconn, hχ, hE⟩ := CombMap.consolidate_map (κ := fun z => (lab z).1.isLeft)
-    h.1.kind_σ h.1.kind_α h.1.connected h.1.spherical n6 (by simp only; rw [htyp]) hdist
+    h.1.kind_σ h.1.kind_α h.1.connected h.1.spherical n6 (by simpa only [htyp]) hdist
   obtain ⟨b0, hb0, hexc⟩ := h.1.exc
   -- `P = 1`, `Q = 1` away from the exceptional vertex
   have hP1 : ¬ M.σ.SameCycle (M.α d) b0 → cycleWord M.σ f (M.α d) = 1 := fun h' => by
@@ -445,7 +445,7 @@ theorem consolidate_digon_false : False := by
     rw [e2, e1]
     group
   obtain ⟨hconn, hχ, hE⟩ := CombMap.consolidateDigon_map (κ := fun z => (lab z).1.isLeft)
-    h.1.kind_σ h.1.kind_α h.1.connected h.1.spherical n6 (by simp only; rw [htyp]) hdig
+    h.1.kind_σ h.1.kind_α h.1.connected h.1.spherical n6 (by simpa only [htyp]) hdig
   obtain ⟨b0, hb0, hexc⟩ := h.1.exc
   have hwb0 : ∀ y, M.σ.SameCycle b0 y → cycleWord M.σ f y ≠ 1 := fun y hy hw =>
     hb0 (cycleWord_eq_one_of_sameCycle _ hy.symm hw)

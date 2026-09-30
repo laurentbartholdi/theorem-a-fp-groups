@@ -119,11 +119,12 @@ theorem relCocycle_gen (i : Fin n) :
 
 /-- The `ℤ`-linear extension `b : ℤ[G] →+ Q` of `δ`.  It is **not** `ℤ[G]`-linear in general. -/
 noncomputable def relCocycleLin : ZG (PresentedGroup S) →+ RelQuot S :=
-  Finsupp.liftAddHom fun g => (zmultiplesHom (RelQuot S) (relCocycle S g))
+  (Finsupp.liftAddHom fun g => (zmultiplesHom (RelQuot S) (relCocycle S g))).comp
+    MonoidAlgebra.coeffAddEquiv.toAddMonoidHom
 
 theorem relCocycleLin_single (g : PresentedGroup S) (m : ℤ) :
     relCocycleLin S (MonoidAlgebra.single g m) = m • relCocycle S g := by
-  exact (Finsupp.liftAddHom_apply_single _ g m).trans (zmultiplesHom_apply _ _ m)
+  simp [relCocycleLin]
 
 /-- **Key identity** `b (d z) = π z`. -/
 theorem relCocycleLin_genBoundary (z : FreeMod (PresentedGroup S) n) :

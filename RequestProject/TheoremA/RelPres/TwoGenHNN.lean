@@ -141,7 +141,7 @@ theorem HX_conj (w : FreeGroup ℕ) :
   rw [h, mul_inv_cancel_right]
 
 /-- The embedding `G →* H`. -/
-def baseHX : G →* HX x := (of : QGrp G →* HX x).comp Monoid.Coprod.inl
+noncomputable def baseHX : G →* HX x := (of : QGrp G →* HX x).comp Monoid.Coprod.inl
 
 /-- **`G` embeds in `H`.** -/
 theorem baseHX_injective : Function.Injective (baseHX x) :=
@@ -164,7 +164,7 @@ section Formulas
 variable {G : Type u} [Group G] (x : ℕ → G)
 
 /-- The image of `b` in `H`. -/
-def bHX : HX x := of (Monoid.Coprod.inr (FreeGroup.of 1))
+noncomputable def bHX : HX x := of (Monoid.Coprod.inr (FreeGroup.of 1))
 
 /-- **`a = t b t⁻¹` in `H`** (the index-zero relation). -/
 theorem HX_a_eq :

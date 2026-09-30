@@ -39,8 +39,8 @@ def incidenceGraph (r : ℕ) (T : List Triple) : SimpleGraph (Fin r ⊕ Fin T.le
     | .inl v, .inr l => (v : ℕ) ∈ T[l].entries
     | .inr l, .inl v => (v : ℕ) ∈ T[l].entries
     | _, _ => False
-  symm := by
-    rintro (a | a) (b | b) h <;> simp_all
+  symm := ⟨by
+    rintro (a | a) (b | b) h <;> simp_all⟩
   loopless := ⟨fun v => by cases v <;> simp⟩
 
 /-- The signed row `W_ℓ = e_i + e_j - e_k ∈ ℤ^V` of a triple `ℓ = (i, j) ⟶ k`, eq. (2.1). -/

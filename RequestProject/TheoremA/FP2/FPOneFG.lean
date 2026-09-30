@@ -27,7 +27,8 @@ variable (H : Subgroup G)
 
 /-- `ℤ[G] → ℤ[G ⧸ H]` induced by the projection. -/
 noncomputable abbrev cosetMap : MonoidAlgebra ℤ G →+ ((G ⧸ H) →₀ ℤ) :=
-  Finsupp.mapDomain.addMonoidHom (QuotientGroup.mk : G → G ⧸ H)
+  (Finsupp.mapDomain.addMonoidHom (QuotientGroup.mk : G → G ⧸ H)).comp
+    MonoidAlgebra.coeffAddEquiv.toAddMonoidHom
 
 /-- Left translation by `g` on `ℤ[G ⧸ H]`. -/
 noncomputable abbrev cosetTransl (g : G) : ((G ⧸ H) →₀ ℤ) →+ ((G ⧸ H) →₀ ℤ) :=
@@ -35,17 +36,17 @@ noncomputable abbrev cosetTransl (g : G) : ((G ⧸ H) →₀ ℤ) →+ ((G ⧸ H
 
 theorem cosetMap_single (a : G) (m : ℤ) :
     cosetMap H (MonoidAlgebra.single a m) = Finsupp.single (a : G ⧸ H) m :=
-  Finsupp.mapDomain_single
+  by simp [cosetMap]
 
 theorem cosetMap_of_mul (g : G) (f : MonoidAlgebra ℤ G) :
     cosetMap H (MonoidAlgebra.of ℤ G g * f) = cosetTransl H g (cosetMap H f) := by
   induction f using MonoidAlgebra.induction_on with
-  | hM a =>
+  | of a =>
     rw [MonoidAlgebra.of_apply, MonoidAlgebra.of_apply, MonoidAlgebra.single_mul_single, one_mul,
       cosetMap_single, cosetMap_single]
     simp [cosetTransl, MulAction.Quotient.smul_mk]
-  | hadd x y hx hy => rw [mul_add, map_add, map_add, hx, hy, map_add]
-  | hsmul r x hx => rw [mul_smul_comm, map_zsmul, map_zsmul, hx, map_zsmul]
+  | add x y hx hy => rw [mul_add, map_add, map_add, hx, hy, map_add]
+  | smul r x hx => rw [mul_smul_comm, map_zsmul, map_zsmul, hx, map_zsmul]
 
 variable {k : ℕ} (w : Fin k → ℤ)
 
@@ -64,19 +65,19 @@ theorem cosetTest_of_smul (g : G) (v : FreeMod G k) :
 theorem cosetTest_smul_eq_zero {v : FreeMod G k} (hv : cosetTest H w v = 0)
     (r : MonoidAlgebra ℤ G) : cosetTest H w (r • v) = 0 := by
   induction r using MonoidAlgebra.induction_on with
-  | hM g => rw [cosetTest_of_smul, hv, map_zero]
-  | hadd x y hx hy => rw [add_smul, map_add, hx, hy, add_zero]
-  | hsmul m x hx => rw [smul_assoc, map_zsmul, hx, smul_zero]
+  | of g => rw [cosetTest_of_smul, hv, map_zero]
+  | add x y hx hy => rw [add_smul, map_add, hx, hy, add_zero]
+  | smul m x hx => rw [smul_assoc, map_zsmul, hx, smul_zero]
 
 end CosetTest
 
 open Classical in
 /-- The group elements occurring in a vector of `ℤ[G]^k`. -/
 noncomputable def vecSupport {k : ℕ} (v : FreeMod G k) : Finset G :=
-  Finset.univ.biUnion fun i => (v i).support
+  Finset.univ.biUnion fun i => (v i).coeff.support
 
 open Classical in
-theorem mem_vecSupport {k : ℕ} {v : FreeMod G k} {i : Fin k} {a : G} (ha : a ∈ (v i).support) :
+theorem mem_vecSupport {k : ℕ} {v : FreeMod G k} {i : Fin k} {a : G} (ha : a ∈ (v i).coeff.support) :
     a ∈ vecSupport v :=
   Finset.mem_biUnion.2 ⟨i, Finset.mem_univ _, ha⟩
 
@@ -86,20 +87,20 @@ theorem cosetTest_of_support_le {k : ℕ} (ε : FreeMod G k →+ ℤ)
     (H : Subgroup G) (v : FreeMod G k) (hv : ∀ a ∈ vecSupport v, a ∈ H) :
     cosetTest H (fun i => ε (Pi.single i 1)) v = Finsupp.single ((1 : G) : G ⧸ H) (ε v) := by
   classical
-  have hdecomp : v = ∑ i, ∑ a ∈ (v i).support,
-      Pi.single i (Finsupp.single a (v i a) : MonoidAlgebra ℤ G) := by
+  have hdecomp : v = ∑ i, ∑ a ∈ (v i).coeff.support,
+      Pi.single i (MonoidAlgebra.single a ((v i).coeff a) : MonoidAlgebra ℤ G) := by
     conv_lhs => rw [← Finset.univ_sum_single v]
     refine Finset.sum_congr rfl fun i _ => ?_
-    conv_lhs => rw [← Finsupp.sum_single (v i)]
+    conv_lhs => rw [← MonoidAlgebra.sum_coeff_single (v i)]
     rw [Finsupp.sum]
     exact map_sum (AddMonoidHom.single (fun _ => MonoidAlgebra ℤ G) i) _ _
   have hterm : ∀ i, ∀ a ∈ H, ∀ m : ℤ,
       cosetTest H (fun i => ε (Pi.single i 1))
-        (Pi.single i (Finsupp.single a m : MonoidAlgebra ℤ G)) =
+        (Pi.single i (MonoidAlgebra.single a m : MonoidAlgebra ℤ G)) =
       Finsupp.single ((1 : G) : G ⧸ H)
-        (ε (Pi.single i (Finsupp.single a m : MonoidAlgebra ℤ G))) := by
+        (ε (Pi.single i (MonoidAlgebra.single a m : MonoidAlgebra ℤ G))) := by
     intro i a ha m
-    have hsplit : (Pi.single i (Finsupp.single a m : MonoidAlgebra ℤ G) : FreeMod G k) =
+    have hsplit : (Pi.single i (MonoidAlgebra.single a m : MonoidAlgebra ℤ G) : FreeMod G k) =
         m • (MonoidAlgebra.of ℤ G a • (Pi.single i 1 : FreeMod G k)) := by
       ext j : 1
       by_cases hj : j = i

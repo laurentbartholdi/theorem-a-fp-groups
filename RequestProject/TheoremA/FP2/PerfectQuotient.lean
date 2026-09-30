@@ -15,6 +15,8 @@ rank; with `M = π⁻¹(N)`, `P ⧸ N ≅ F ⧸ M`, and every element of `M` lie
 because `π(M) = N = ⁅N, N⁆ = π(⁅M, M⁆)`.  Then apply `isFP_two_presentedGroup_of_perfect_extension`.
 -/
 
+open scoped commutatorElement
+
 @[expose] public section
 
 namespace TheoremA
@@ -22,7 +24,7 @@ namespace TheoremA
 /-- **Quotients by perfect normal subgroups preserve `FP₂`.** -/
 theorem isFP_two_quotient_of_perfect {P : Type*} [Group P] (hP : IsFP 2 P) (N : Subgroup P)
     [N.Normal] (hN : N ≤ ⁅N, N⁆) : IsFP 2 (P ⧸ N) := by
-  obtain ⟨s, hs⟩ := (hP.fg_of_le (by norm_num)).out
+  obtain ⟨s, hs⟩ := Group.isMulFG_iff.mp (hP.fg_of_le (by norm_num))
   let m := s.card
   let x : Fin m → P := fun i => (s.equivFin.symm i : P)
   have hx : Subgroup.closure (Set.range x) = ⊤ := by

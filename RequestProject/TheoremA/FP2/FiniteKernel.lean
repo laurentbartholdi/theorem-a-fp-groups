@@ -49,7 +49,10 @@ noncomputable def genFPData {n : ℕ} (x : Fin n → G) (hx : Subgroup.closure (
     rw [LinearEquiv.map_smul, augZG_of_smul]
   ε_surj m := by
     obtain ⟨a, ha⟩ := augZG_surjective (G := G) m
-    exact ⟨(freeModOneEquiv G).symm a, by simpa using ha⟩
+    refine ⟨(freeModOneEquiv G).symm a, ?_⟩
+    change augZG (freeModOneEquiv G ((freeModOneEquiv G).symm a)) = m
+    rw [LinearEquiv.apply_symm_apply]
+    exact ha
   exact0 _ := by
     ext v
     show augZG (freeModOneEquiv G v) = 0 ↔ _

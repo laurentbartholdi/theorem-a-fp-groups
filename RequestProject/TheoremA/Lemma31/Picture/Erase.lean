@@ -63,7 +63,7 @@ theorem erasePt_apply_of_eq (hπx : π x = a) : erasePt π a x = π a := by
 
 theorem erasePt_of_fixed (h : π a = a) : erasePt π a = π := by
   have : π⁻¹ a = a := by rw [Perm.inv_eq_iff_eq, h]
-  simp [erasePt, this]
+  simp [erasePt, this, ← Perm.one_def]
 
 theorem erasePt_apply_ne (hx : x ≠ a) : erasePt π a x ≠ a := by
   intro h

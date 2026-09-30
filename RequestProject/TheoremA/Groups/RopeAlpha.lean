@@ -84,7 +84,6 @@ theorem thetaMap_right (l : ropeL' N) : (thetaMap N l).right = 1 := by
 noncomputable def alphaC : ropeL' N →* FreeGroup (Fin d) ⧸ N :=
   MonoidHom.mk' (fun l => (thetaMap N l).left.1) (by
     intro a b
-    dsimp only
     rw [Subgroup.coe_mul, map_mul, SemidirectProduct.mul_left, thetaMap_right N a, map_one,
       MulAut.one_apply]
     rfl)

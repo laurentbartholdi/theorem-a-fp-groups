@@ -2,6 +2,8 @@ module
 
 public import RequestProject.TheoremA.Fano
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 /-!

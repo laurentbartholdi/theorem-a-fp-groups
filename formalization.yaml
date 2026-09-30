@@ -74,8 +74,8 @@ automation:
       tool_setup: "Used for Palomar packaging and documentation in this preparation, not for the original proof development."
     - method: "agent"
       framework: "Codex"
-      models: []
-      tool_setup: "Used to diagnose and repair the preflight commit selection, audit the existing proof, and submit to Palomar."
+      models: ["GPT-6"]
+      tool_setup: "Used to repair Palomar packaging and workflow inputs, upgrade Lean and Mathlib, audit the proof, and submit to Palomar."
   spend_usd: "not tracked"
   notes: >-
     The original formalization was produced with Aristotle. Available project

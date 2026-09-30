@@ -21,6 +21,8 @@ For `F = FreeGroup (Fin n)`, relators `S ⊆ F`, `G = PresentedGroup S` and word
 The group form (`isFP_two_quotient_of_perfect`) is in `PerfectQuotient.lean`.
 -/
 
+open scoped commutatorElement
+
 @[expose] public section
 
 namespace TheoremA

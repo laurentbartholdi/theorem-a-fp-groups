@@ -212,7 +212,13 @@ theorem cone_top (hΦ : IsChainLift R φ Φ) (hk : 1 ≤ k) {q : ℕ}
     refine ⟨(z1, y1 - z), ?_⟩
     have := congrArg Prod.fst hz1
     have h' := congrArg Prod.snd hz1
-    simp only [coneTop_apply, LinearMap.inl_apply] at this h' ⊢
+    change matMap (fun a => ρV (ofE φ hφ) (n a)) z1 +
+      (y1 - Tmap φ hφ R Φ (k' + 2) y1) = x + (z - Tmap φ hφ R Φ (k' + 2) z) at this
+    change -(indMap (ofE φ hφ) (R.d (k' + 1)) y1) = 0 at h'
+    change (matMap (fun a => ρV (ofE φ hφ) (n a)) z1 +
+      ((y1 - z) - Tmap φ hφ R Φ (k' + 2) (y1 - z)),
+      -(indMap (ofE φ hφ) (R.d (k' + 1)) (y1 - z))) =
+      (x, indMap (ofE φ hφ) (R.d (k' + 1)) z)
     refine Prod.ext ?_ ?_
     · simp only [map_sub]
       rw [show matMap (fun a => ρV (ofE φ hφ) (n a)) z1 = x + (z - Tmap φ hφ R Φ (k' + 2) z)

@@ -119,7 +119,7 @@ theorem map_normalClosure_jRels (hD : D.WF) (S : Set ℤ) :
 theorem qS_mkP (S : Set ℤ) (r : FreeGroup (Fin D.m)) :
     D.qS S (D.mkP r) = PresentedGroup.mk (D.jRels S) r := by
   induction r using FreeGroup.induction_on with
-  | C1 => simp
+  | one => simp
   | of a => exact D.qS_of S a
   | inv_of a ih => rw [map_inv, map_inv, ih, map_inv]
   | mul x y hx hy => rw [map_mul, map_mul, hx, hy, map_mul]

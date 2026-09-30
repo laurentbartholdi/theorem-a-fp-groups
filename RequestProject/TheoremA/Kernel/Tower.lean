@@ -159,7 +159,7 @@ theorem hb_of_saturated {G : Type u} [Group G] (hG : Group.FG G) (hG1 : ClassCR 
     (MonoidHom.id G) Function.injective_id K rfl
   classical
   let V : Subgroup E := Subgroup.closure ((k₀.image j : Set E) ∪ {x | x ∈ T})
-  have hV : V.FG := ⟨k₀.image j ∪ T.toFinset, by simp [V]⟩
+  have hV : V.FG := Subgroup.isMulFG_iff.mpr ⟨k₀.image j ∪ T.toFinset, by simp [V]⟩
   refine ⟨E, inferInstance, e1, e2, j, hj, V, hV, le_antisymm ?_ ?_⟩
   · intro x hx
     have hle : V ≤ Subgroup.closure (j '' (K : Set G) ∪ {x | x ∈ T}) := by

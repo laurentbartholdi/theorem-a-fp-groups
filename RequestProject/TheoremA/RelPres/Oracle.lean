@@ -5,9 +5,9 @@ public import Mathlib
 /-!
 # Closure facts for Mathlib's `RecursiveIn`
 
-The pinned Mathlib provides only the inductive definition `RecursiveIn O` (on `ℕ →. ℕ`) and
-`recursiveIn_empty_iff_partrec`; there is no typed interface and no conditional-closure theorem.
-We derive the closure properties needed for relative presentations from the constructors:
+The encoded relative presentations use Mathlib's natural-number relation `Nat.RecursiveIn O`
+(on `ℕ →. ℕ`), kept under the local name `RecursiveIn`. We derive the closure properties
+needed for relative presentations from its constructors:
 
 * `RecursiveIn.of_partrec` — every oracle-free partial recursive function is recursive in `O`;
 * `RecursiveIn.comp_primrec` — precomposition with a primitive recursive function;
@@ -20,6 +20,13 @@ We derive the closure properties needed for relative presentations from the cons
 @[expose] public section
 
 namespace TheoremA.RelPres
+
+/-- The natural-number oracle relation used by the encoded relative presentations. -/
+abbrev RecursiveIn (O : Set (ℕ →. ℕ)) (f : ℕ →. ℕ) : Prop := Nat.RecursiveIn O f
+
+namespace RecursiveIn
+export Nat.RecursiveIn (zero succ left right oracle pair comp prec rfind)
+end RecursiveIn
 
 open Nat.Partrec
 

@@ -84,7 +84,7 @@ theorem wordBoundary_substitution (f : H →* K) (x : Fin n → H) (y : Fin m �
     (hB : ∀ i, f (x i) = FreeGroup.lift y (θ (FreeGroup.of i))) (u : FreeGroup (Fin n)) :
     boundarySubst f y θ (wordBoundary x u) = wordBoundary y (θ u) := by
   induction u using FreeGroup.induction_on with
-  | C1 => simp
+  | one => simp
   | of i => simp
   | inv_of i _ =>
     rw [wordBoundary_of_inv, map_neg, boundarySubst_smul, boundarySubst_stdBasis, coeffMap_of,

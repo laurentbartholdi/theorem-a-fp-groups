@@ -26,7 +26,7 @@ open TheoremA.RelPres
 
 /-- `S ⊆ ℤ` is enumerable relative to the oracle `R`. -/
 def IntEnumerable (R : Set ℕ) (S : Set ℤ) : Prop :=
-  ∃ f : ℕ →. ℤ, RecursiveIn (oracle R) (fun k => (f k).map Encodable.encode) ∧
+  ∃ f : ℕ →. ℤ, RelPres.RecursiveIn (oracle R) (fun k => (f k).map Encodable.encode) ∧
     S = {n | ∃ k, n ∈ f k}
 
 theorem encode_int_ofNat (n : ℕ) : Encodable.encode (Int.ofNat n) = 2 * n := by
@@ -198,28 +198,28 @@ variable {D}
 
 /-- **`jEnum` is an enumerator relative to the same oracle `R`.** -/
 theorem isEnumerator_jEnum {R : Set ℕ} {f : ℕ →. ℤ}
-    (hf : RecursiveIn (oracle R) (fun k => (f k).map Encodable.encode)) :
+    (hf : RelPres.RecursiveIn (oracle R) (fun k => (f k).map Encodable.encode)) :
     IsEnumerator R (D.jEnum f) := by
-  have hT : RecursiveIn (oracle R) fun k =>
+  have hT : RelPres.RecursiveIn (oracle R) fun k =>
       ((D.shortTable[k.div2]?).map Encodable.encode : Part ℕ) :=
-    RecursiveIn.comp_primrec (f := fun k => ((D.shortTable[k]?).map Encodable.encode : Part ℕ))
-      (RecursiveIn.of_partrec (partrec_table D.shortTable)) Primrec.nat_div2
+    RelPres.RecursiveIn.comp_primrec (f := fun k => ((D.shortTable[k]?).map Encodable.encode : Part ℕ))
+      (RelPres.RecursiveIn.of_partrec (partrec_table D.shortTable)) Primrec.nat_div2
   -- the pair ⟨a, code of n⟩
-  have hA : RecursiveIn (oracle R) fun k => (Part.some k.div2.unpair.1 : Part ℕ) :=
-    RecursiveIn.of_partrec (Partrec.nat_iff.1
+  have hA : RelPres.RecursiveIn (oracle R) fun k => (Part.some k.div2.unpair.1 : Part ℕ) :=
+    RelPres.RecursiveIn.of_partrec (Partrec.nat_iff.1
       (Computable.partrec (Primrec.to_comp (Primrec.fst.comp
         (Primrec.unpair.comp Primrec.nat_div2)))))
-  have hN : RecursiveIn (oracle R) fun k => (f k.div2.unpair.2).map Encodable.encode :=
-    RecursiveIn.comp_primrec (f := fun k => (f k).map Encodable.encode) hf
+  have hN : RelPres.RecursiveIn (oracle R) fun k => (f k.div2.unpair.2).map Encodable.encode :=
+    RelPres.RecursiveIn.comp_primrec (f := fun k => (f k).map Encodable.encode) hf
       (Primrec.snd.comp (Primrec.unpair.comp Primrec.nat_div2))
-  have hP := RecursiveIn.pair hA hN
+  have hP := RelPres.RecursiveIn.pair hA hN
   let g' : ℕ →. ℕ := fun p => Part.some (Encodable.encode (D.rawLongC p.unpair.1 p.unpair.2))
   have hg' : Nat.Partrec g' := by
     apply Partrec.nat_iff.1
     exact (Primrec.encode.comp (D.primrec_rawLongC.comp (Primrec.fst.comp Primrec.unpair)
       (Primrec.snd.comp Primrec.unpair))).to_comp.partrec
-  have hE := RecursiveIn.comp (RecursiveIn.of_partrec hg') hP
-  have := RecursiveIn.cond Primrec.nat_bodd hE hT
+  have hE := RelPres.RecursiveIn.comp (RelPres.RecursiveIn.of_partrec hg') hP
+  have := RelPres.RecursiveIn.cond Primrec.nat_bodd hE hT
   unfold IsEnumerator
   convert this using 1
   funext k

@@ -15,6 +15,8 @@ public import RequestProject.TheoremA.FP2.PerfectQuotient
 No finite generation or injectivity is assumed.
 -/
 
+open scoped commutatorElement
+
 @[expose] public section
 
 namespace TheoremA.Leary

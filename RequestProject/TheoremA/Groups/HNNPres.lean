@@ -153,7 +153,7 @@ end HNN
 /-- A finitely generated group admits a finite generating tuple. -/
 theorem exists_fin_generating_tuple {A : Type*} [Group A] (hA : Group.FG A) :
     ∃ (m : ℕ) (a : Fin m → A), Subgroup.closure (Set.range a) = ⊤ := by
-  obtain ⟨s, hs⟩ := hA.out
+  obtain ⟨s, hs⟩ := Group.isMulFG_iff.mp hA
   refine ⟨s.card, fun i => (s.equivFin.symm i : A), ?_⟩
   rw [← hs]
   congr 1

@@ -18,6 +18,8 @@ public import RequestProject.TripleSystem
   `α_k(b) = α_i(b) α_j(b)`.
 -/
 
+open scoped commutatorElement
+
 @[expose] public section
 
 namespace TheoremA

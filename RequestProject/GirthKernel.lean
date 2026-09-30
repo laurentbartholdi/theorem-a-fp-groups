@@ -72,7 +72,7 @@ def nbrs (a : ℕ) : List ℕ :=
 /-- The graph on `ℕ` described by the tree. -/
 def graph : SimpleGraph ℕ where
   Adj a b := a < N ∧ b < N ∧ b ∈ t.get a ∧ a ∈ t.get b ∧ a ≠ b
-  symm := fun _ _ ⟨h1, h2, h3, h4, h5⟩ => ⟨h2, h1, h4, h3, Ne.symm h5⟩
+  symm := ⟨fun _ _ ⟨h1, h2, h3, h4, h5⟩ => ⟨h2, h1, h4, h3, Ne.symm h5⟩⟩
   loopless := ⟨fun _ h => h.2.2.2.2 rfl⟩
 
 theorem adj_iff (a b : ℕ) : (graph N t).Adj a b ↔ b ∈ nbrs N t a := by

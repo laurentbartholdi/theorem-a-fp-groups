@@ -111,7 +111,7 @@ theorem sameCycle_swap_mul_split_iff (hab : a ≠ b) (h : π.SameCycle a b) {x y
 theorem numOrbits_swap_mul_le (a b : D) (π : Perm D) :
     numOrbits (swap a b * π) ≤ numOrbits π + 1 := by
   by_cases hab : a = b
-  · subst hab; simp
+  · subst hab; rw [Equiv.swap_self]; change numOrbits π ≤ numOrbits π + 1; omega
   by_cases h : π.SameCycle a b
   · rw [numOrbits_swap_mul_split hab h]
   · have := numOrbits_swap_mul h; omega

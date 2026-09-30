@@ -47,7 +47,7 @@ theorem HB.sup_fg {G : Type u} [Group G] (hG : Group.FG G) {N : Subgroup G} (hN 
   let Z : Subgroup E := (K.map f).map (of : P →* E) ⊔ (f.range.map (of : P →* E)).map conjT
   have hGr : f.range.FG := by
     rw [MonoidHom.range_eq_map]
-    exact Subgroup.fg_map' f hG.out
+    exact Subgroup.fg_map' f (Group.fg_def.mp hG)
   refine ⟨E, _, c, d, (of : P →* E).comp f, (by rw [MonoidHom.coe_comp]; exact (of_injective (φ := MulEquiv.refl V)).comp hf), Z,
     (Subgroup.fg_map' _ (Subgroup.fg_map' _ hK)).sup
       (Subgroup.fg_map' _ (Subgroup.fg_map' _ hGr)), ?_⟩

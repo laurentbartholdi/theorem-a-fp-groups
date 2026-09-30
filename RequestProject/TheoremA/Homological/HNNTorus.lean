@@ -22,7 +22,7 @@ open MonoidAlgebra
 variable {B : Type u} [Group B] (φ : B →* B) (hφ : Function.Injective φ)
 
 /-- The inclusion of the base into the ascending HNN extension. -/
-abbrev ofE : B →* ascHNN φ hφ := HNNExtension.of
+noncomputable abbrev ofE : B →* ascHNN φ hφ := HNNExtension.of
 
 /-- The stable letter `s = t⁻¹`, with `b s = s φ(b)`. -/
 noncomputable def sE : ascHNN φ hφ := HNNExtension.t⁻¹

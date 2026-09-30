@@ -20,7 +20,8 @@ variable {B E : Type u} [Group B] [Group E] (ι : B →* E) (hι : Function.Inje
 
 /-- The projection `ℤ[E] → ℤ[E / ι B]`. -/
 noncomputable def πM : ZG E →+ ((E ⧸ ι.range) →₀ ℤ) :=
-  Finsupp.mapDomain.addMonoidHom (cosetOf ι)
+  (Finsupp.mapDomain.addMonoidHom (cosetOf ι)).comp
+    MonoidAlgebra.coeffAddEquiv.toAddMonoidHom
 
 theorem πM_single (e : E) (n : ℤ) :
     πM ι (MonoidAlgebra.single e n) = Finsupp.single (cosetOf ι e) n := by

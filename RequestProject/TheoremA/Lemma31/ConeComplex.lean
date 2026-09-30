@@ -95,8 +95,8 @@ def graph : SimpleGraph (V ⊕ T) where
     | .inl v, .inr t => C.inc v t
     | .inr t, .inl v => C.inc v t
     | _, _ => False
-  symm := by
-    rintro (a | a) (b | b) h <;> simp_all
+  symm := ⟨by
+    rintro (a | a) (b | b) h <;> simp_all⟩
   loopless := ⟨fun v => by cases v <;> simp⟩
 
 /-- Non-positive curvature for the `(π/6, π/2, π/3)` metric: injective structure maps, pairwise

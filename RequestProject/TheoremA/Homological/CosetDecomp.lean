@@ -64,16 +64,15 @@ theorem cosetOf_out (q : E ⧸ ι.range) : cosetOf ι q.out = q := Quotient.out_
 
 /-- The coset decomposition `ℤ[E] → ⊕_{E / ι B} ℤ[B]`. -/
 noncomputable def decomp : ZG E →+ ((E ⧸ ι.range) →₀ ZG B) :=
-  Finsupp.liftAddHom fun e =>
+  (Finsupp.liftAddHom fun e =>
     (Finsupp.singleAddHom (cosetOf ι e)).comp
-      (Finsupp.singleAddHom (bOf ι hι e) : ℤ →+ ZG B)
+      (MonoidAlgebra.singleAddHom (bOf ι hι e) : ℤ →+ ZG B)).comp
+    MonoidAlgebra.coeffAddEquiv.toAddMonoidHom
 
 theorem decomp_single (e : E) (n : ℤ) :
     decomp ι hι (MonoidAlgebra.single e n) =
       Finsupp.single (cosetOf ι e) (MonoidAlgebra.single (bOf ι hι e) n) := by
-  unfold decomp
-  erw [Finsupp.liftAddHom_apply_single]
-  rfl
+  simp [decomp]
 
 /-- Reassembly `⊕_{E / ι B} ℤ[B] → ℤ[E]`, `(q, l) ↦ out(q) · ι(l)`. -/
 noncomputable def assemble : ((E ⧸ ι.range) →₀ ZG B) →+ ZG E :=

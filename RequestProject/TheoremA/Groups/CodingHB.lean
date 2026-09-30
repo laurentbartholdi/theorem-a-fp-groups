@@ -189,7 +189,9 @@ theorem hb_VZ : HB R (VZ ℓ) := by
   have htop : Group.FG (⊤ : Subgroup (Fc ℓ)) := (Group.fg_iff_subgroup_fg ⊤).2 (Group.fg_def.1 fg_Fc)
   obtain ⟨e1, e2⟩ := classCR_isFP_two_hnn c1 c2 (phiPsi ℓ) htop
   let V : Subgroup (EPsi ℓ) := Subgroup.closure {of dd, t}
-  have hV : V.FG := by classical exact ⟨{of dd, t}, by simp [V]⟩
+  have hV : V.FG := by
+    classical
+    exact Subgroup.isMulFG_iff.mpr ⟨{of dd, t}, by simp [V]⟩
   refine ⟨EPsi ℓ, inferInstance, e1, e2, of, of_injective _, V, hV, ?_⟩
   apply le_antisymm
   · intro x hx

@@ -6,6 +6,8 @@ public import Mathlib.Algebra.MonoidAlgebra.Defs
 public import Mathlib.Data.Countable.Defs
 public import Mathlib.GroupTheory.GroupAction.Ring
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 /-!

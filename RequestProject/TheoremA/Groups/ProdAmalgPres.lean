@@ -301,7 +301,7 @@ theorem coprodPres_mk_castAdd (x : FreeGroup (Fin n₀)) :
       ((PresentedGroup.mk (coprodRels S₀ S₁)).comp (FreeGroup.map (Fin.castAdd n₁)))) =
       (Monoid.Coprod.inl : B₀ →* _).comp ((ψ₀ : _ →* B₀).comp (PresentedGroup.mk S₀)) :=
     FreeGroup.ext_hom _ _ fun j => by
-      simpa using coprodPresEquiv_of_castAdd ψ₀ ψ₁ j
+      simpa [PresentedGroup.of] using coprodPresEquiv_of_castAdd ψ₀ ψ₁ j
   exact DFunLike.congr_fun this x
 
 theorem coprodPres_mk_natAdd (x : FreeGroup (Fin n₁)) :
@@ -311,7 +311,7 @@ theorem coprodPres_mk_natAdd (x : FreeGroup (Fin n₁)) :
       ((PresentedGroup.mk (coprodRels S₀ S₁)).comp (FreeGroup.map (Fin.natAdd n₀)))) =
       (Monoid.Coprod.inr : B₁ →* _).comp ((ψ₁ : _ →* B₁).comp (PresentedGroup.mk S₁)) :=
     FreeGroup.ext_hom _ _ fun j => by
-      simpa using coprodPresEquiv_of_natAdd ψ₀ ψ₁ j
+      simpa [PresentedGroup.of] using coprodPresEquiv_of_natAdd ψ₀ ψ₁ j
   exact DFunLike.congr_fun this x
 
 theorem eval_amalgRelator (j : Fin m) :

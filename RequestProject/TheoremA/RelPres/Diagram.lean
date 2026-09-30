@@ -27,6 +27,8 @@ Let `ψ : PresentedGroup S ≃* B` be a presentation on `Fin n` and write `x_a =
   second conjunct of `UniversalBases`).
 -/
 
+open scoped commutatorElement
+
 @[expose] public section
 
 namespace TheoremA.RelPres

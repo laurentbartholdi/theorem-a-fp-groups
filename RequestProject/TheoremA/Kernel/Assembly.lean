@@ -59,11 +59,12 @@ def subY (S : Set ℤ) : Subgroup FB := (VS 4 S).map iC ⊔ subA
 def subD (S : Set ℤ) : Subgroup FB := (Gcode ⊓ subY S) ⊔ subC
 
 theorem fg_subA : subA.FG := by
-  classical exact ⟨{aB, bB, hB}, by simp [subA]⟩
+  classical exact Subgroup.isMulFG_iff.mpr ⟨{aB, bB, hB}, by simp [subA]⟩
 
 theorem fg_subC : subC.FG := by
   classical
-  exact ⟨insert hB (Finset.univ.image fun x : Fin 3 ⊕ Fin 4 => iC (FreeGroup.of x)),
+  exact Subgroup.isMulFG_iff.mpr
+    ⟨insert hB (Finset.univ.image fun x : Fin 3 ⊕ Fin 4 => iC (FreeGroup.of x)),
     by simp [subC]⟩
 
 theorem iAB_mem_subA (x : FreeGroup (Fin 2)) : iAB x ∈ subA := by

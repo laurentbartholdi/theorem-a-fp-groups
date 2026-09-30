@@ -54,7 +54,7 @@ namespace Res
 variable {B : Type u} [Group B] {k : ℕ}
 
 /-- The top syzygy `S = ker (d_m : F_m → F_{m-1})`, `m = k + 1`. -/
-def S (R : Res B k) : Submodule (ZG B) (FreeMod B (R.c (k + 1))) := LinearMap.ker (R.d k)
+noncomputable def S (R : Res B k) : Submodule (ZG B) (FreeMod B (R.c (k + 1))) := LinearMap.ker (R.d k)
 
 /-- A group of type `FP_{k+1}` has a finite free partial resolution of length `k + 1`. -/
 theorem nonempty_of_isFP (h : IsFP (k + 1) B) : Nonempty (Res B k) := by

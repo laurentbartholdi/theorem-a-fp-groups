@@ -49,7 +49,7 @@ as well as the finite-system indexing and audit details, is in
 
 ## Build and audit
 
-The project pins Lean 4.28.0 and Mathlib in [lean-toolchain](lean-toolchain),
+The project pins Lean 4.35.0-rc2 and Mathlib in [lean-toolchain](lean-toolchain),
 [lakefile.toml](lakefile.toml), and [lake-manifest.json](lake-manifest.json).
 With Lean and Lake installed, run from the repository root:
 
@@ -65,6 +65,11 @@ and dependency/axiom audit, including the source hashes used for that run; it
 is a historical record rather than a certificate for later source edits.
 Palomar performs its own Comparator verification and independent kernel
 replay; a local build is not a substitute for that check.
+
+The build retains Lean's earlier transparency behavior for tactic elaboration.
+The same setting appears in both Palomar wrapper modules so direct verification
+elaborates them consistently. The Lean 4.35 port also uses Mathlib's explicit
+group-ring coefficient maps and its renamed natural-number oracle relation.
 
 The **Palomar mechanical preflight** GitHub Actions workflow runs Palomar's
 complete pinned verifier. Leave its optional `commit` input blank to verify

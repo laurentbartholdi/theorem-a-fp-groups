@@ -34,10 +34,8 @@ def EmbedsSuitable (R : Set ℕ) (G : Type u) [Group G] : Prop :=
 
 theorem Subgroup.fg_map' {G P : Type*} [Group G] [Group P] (f : G →* P) {H : Subgroup G}
     (hH : H.FG) : (H.map f).FG := by
-  obtain ⟨s, rfl⟩ := hH
-  classical
-  refine ⟨s.image f, ?_⟩
-  rw [MonoidHom.map_closure, Finset.coe_image]
+  letI : IsMulFG H := hH
+  infer_instance
 
 theorem Subgroup.fg_prod' {G P : Type*} [Group G] [Group P] {H : Subgroup G} {K : Subgroup P}
     (hH : H.FG) (hK : K.FG) : (H.prod K).FG := by

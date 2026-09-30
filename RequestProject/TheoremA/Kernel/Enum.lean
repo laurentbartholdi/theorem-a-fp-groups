@@ -182,7 +182,7 @@ theorem encode_int_natCast (n : ℕ) : Encodable.encode ((n : ℕ) : ℤ) = 2 * 
 
 /-- **`codeEnum` is recursive in `oracle R`.** -/
 theorem recursiveIn_codeEnum (R : Set ℕ) (p : ℕ) :
-    RecursiveIn (oracle R) fun k => (codeEnum R p k).map Encodable.encode := by
+    RelPres.RecursiveIn (oracle R) fun k => (codeEnum R p k).map Encodable.encode := by
   let G : ℕ → Option ℕ := fun m =>
     if accept p (decData (Nat.unpair m).1) (decodeNatList (Nat.unpair m).2) = true then
       some (2 * code (decData (Nat.unpair m).1).2.2) else none
@@ -199,9 +199,9 @@ theorem recursiveIn_codeEnum (R : Set ℕ) (p : ℕ) :
   have hg : Primrec fun k => (decData k).1.map fun nd => nd.2.1 :=
     Primrec.list_map (Primrec.fst.comp primrec_decData)
       (Primrec.fst.comp (Primrec.snd.comp Primrec.snd)).to₂
-  have h2 := RecursiveIn.pair (RecursiveIn.of_primrec (O := oracle R) Primrec.id)
+  have h2 := RelPres.RecursiveIn.pair (RelPres.RecursiveIn.of_primrec (O := oracle R) Primrec.id)
     (recursiveIn_mapChi (R := R) hg)
-  have h3 := RecursiveIn.comp (RecursiveIn.of_partrec hGp) h2
+  have h3 := RelPres.RecursiveIn.comp (RelPres.RecursiveIn.of_partrec hGp) h2
   convert h3 using 1
   funext k
   simp only [Seq.seq, Part.map_some]
